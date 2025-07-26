@@ -201,7 +201,13 @@ const ProductDetailPage = () => {
                 <div className="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
                     {/* Left: Logo and Navigation */}
                     <div className="flex items-center gap-8">
-                        <h1 className="text-xl font-bold text-red-600">care mall</h1>
+                        <img
+                            src="./caremall.png"
+                            alt="Caremall Logo"
+                            className="w-28 sm:w-20 md:w-28 lg:w-36 xl:w-44"
+                        />
+
+
                         <nav className="hidden sm:flex gap-6 text-sm text-gray-700">
 
                             <a
