@@ -161,6 +161,38 @@ const ProductDetailPage = () => {
             price: '₹1,199'
         }
     ];
+    const mostWanted = [
+        {
+            image: './powerbank.webp',
+            heading: 'Portable Power Bank 10000mAh',
+            price: '₹999'
+        },
+        {
+            image: './earbuds.webp',
+            heading: 'Noise Cancelling Earbuds',
+            price: '₹3,999'
+        },
+        {
+            image: './wirelessmouse.webp',
+            heading: 'Wireless Mouse',
+            price: '₹599'
+        },
+        {
+            image: './bluetoothspeaker.webp',
+            heading: 'Mini Bluetooth Speaker',
+            price: '₹799'
+        },
+        {
+            image: './tripod.webp',
+            heading: 'Smartphone Tripod Stand',
+            price: '₹649'
+        },
+        {
+            image: './charger.webp',
+            heading: 'USB Type-C Fast Charger',
+            price: '₹1,199'
+        }
+    ]
 
     return (
         <div className="bg-gray-100">
@@ -617,27 +649,47 @@ const ProductDetailPage = () => {
             <div className="max-w-7xl mx-auto mt-6 px-4">
                 <h3 className="text-xl font-semibold mb-4">Most Wanted</h3>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                    {[...Array(4)].map((_, i) => (
+                    {mostWanted.map((product, i) => (
                         <div key={i} className="bg-white rounded-lg shadow-md p-2">
-                            <img
-                                src="https://via.placeholder.com/200"
-                                alt="Most Wanted"
-                                className="w-full h-40 object-cover rounded-md"
-                            />
-                            <p className="mt-2 text-sm">Popular Item {i + 1}</p>
-                            <p className="text-sm font-semibold">Rs.{800 + i * 400}</p>
+                            <div className="bg-gray-100 rounded-lg p-2">
+                                <div className="flex justify-end items-center space-x-1 mb-1">
+                                    <span className="material-symbols-outlined text-gray-700 text-sm p-1 bg-white rounded-full cursor-pointer hover:bg-gray-200">
+                                        favorite
+                                    </span>
+                                </div>
+                                <img
+                                    src={product.image}
+                                    alt={product.heading}
+                                    className="w-full h-40 object-contain rounded-md"
+                                />
+                            </div>
+                            <p className="mt-2 text-sm">{product.heading}</p>
+                            <p className="text-sm font-semibold">Rs.{product.price}</p>
                         </div>
                     ))}
                 </div>
             </div>
 
             {/* Download App Section */}
-            <div className="mt-8 bg-red-600 text-white text-center py-10 px-4">
-                <h3 className="text-2xl font-bold mb-2">Unlock Exclusive Deals!</h3>
-                <p className="mb-4">Download the Caremall App</p>
-                <div className="flex justify-center gap-4">
-                    <button className="bg-black px-4 py-2 rounded">App Store</button>
-                    <button className="bg-black px-4 py-2 rounded">Google Play</button>
+            <div className="max-w-7xl mx-auto mt-8 px-4 bg-red-600 text-white py-10 rounded-xl">
+                <div className="flex flex-col md:flex-row items-center justify-center text-center md:text-left gap-0 md:gap-0">
+                    {/* Text Content */}
+                    <div className="md:w-[52%]">
+                        <h3 className="text-2xl font-bold mb-2">Unlock Exclusive Deals!</h3>
+                        <p className="mb-4">Download the Caremall App</p>
+                        <div className="flex justify-center md:justify-start gap-4">
+                            <button className="bg-black px-4 py-2 rounded">Google Play</button>
+                        </div>
+                    </div>
+
+                    {/* Cover Photo */}
+                    <div className="md:w-[35%] flex justify-center">
+                        <img
+                            src="./coverphoto.png"
+                            alt="App Promo"
+                            className="w-60 md:w-72 transform -rotate-6 rounded-lg"
+                        />
+                    </div>
                 </div>
             </div>
 
