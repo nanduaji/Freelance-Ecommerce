@@ -394,62 +394,78 @@ const ProductDetailPage = () => {
                 {/* Product Info */}
                 <div className="flex flex-col justify-between">
                     <div>
-                        <h2 className="text-2xl font-bold mb-2">
+                        <h2 className="text-2xl font-bold mb-2 text-left">
                             Boat Nautical Sound Wireless Headphones in Ocean Blue
                         </h2>
-                        <p className="lead text-center">
 
+                        <div className="flex items-center justify-start mt-2">
+                            <p className="text-sm font-medium text-gray-600 mr-2">5K+ Sold</p>
 
-                            <div className="flex items-center justify-center mt-2">
-                                5K+ Sold
-                                {/* 4 full stars */}
-                                {[...Array(4)].map((_, i) => (
-                                    <svg
-                                        key={i}
-                                        className="w-4 h-4 text-yellow-400 mx-0.5"
-                                        fill="currentColor"
-                                        viewBox="0 0 20 20"
-                                    >
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.967h4.175c.969 0 1.371 1.24.588 1.81l-3.376 2.455 1.286 3.967c.3.921-.755 1.688-1.54 1.118L10 13.011l-3.376 2.455c-.785.57-1.84-.197-1.54-1.118l1.286-3.967-3.376-2.455c-.783-.57-.38-1.81.588-1.81h4.175l1.286-3.967z" />
-                                    </svg>
-                                ))}
-
-                                {/* Half star - left side fill */}
+                            {/* 4 full stars */}
+                            {[...Array(4)].map((_, i) => (
                                 <svg
+                                    key={i}
                                     className="w-4 h-4 text-yellow-400 mx-0.5"
+                                    fill="currentColor"
                                     viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg"
                                 >
-                                    <defs>
-                                        <linearGradient id="half-star" x1="0%" y1="0%" x2="100%" y2="0%">
-                                            <stop offset="50%" stopColor="currentColor" />
-                                            <stop offset="50%" stopColor="transparent" />
-                                        </linearGradient>
-                                    </defs>
-                                    <path
-                                        fill="url(#half-star)"
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 
-        3.967h4.175c.969 0 1.371 1.24.588 1.81l-3.376 
-        2.455 1.286 3.967c.3.921-.755 1.688-1.54 
-        1.118L10 13.011l-3.376 2.455c-.785.57-1.84-.197-1.54-1.118l1.286-3.967-3.376-2.455c-.783-.57-.38-1.81.588-1.81h4.175l1.286-3.967z"
-                                    />
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.967h4.175c.969 0 1.371 1.24.588 1.81l-3.376 2.455 1.286 3.967c.3.921-.755 1.688-1.54 1.118L10 13.011l-3.376 2.455c-.785.57-1.84-.197-1.54-1.118l1.286-3.967-3.376-2.455c-.783-.57-.38-1.81.588-1.81h4.175l1.286-3.967z" />
                                 </svg>
+                            ))}
 
-                                {/* Rating and reviews */}
-                                <p className="ms-2 text-sm font-bold text-gray-900">4.8</p>
-                                <span className="w-1 h-1 mx-1.5 bg-gray-500 rounded-full"></span>
-                                <a
-                                    href="#"
-                                    className="text-sm font-medium text-gray-900 underline hover:no-underline"
-                                >
-                                    85 reviews
-                                </a>
-                            </div>
+                            {/* Half star */}
+                            <svg
+                                className="w-4 h-4 text-yellow-400 mx-0.5"
+                                viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <defs>
+                                    <linearGradient id="half-star" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="50%" stopColor="currentColor" />
+                                        <stop offset="50%" stopColor="transparent" />
+                                    </linearGradient>
+                                </defs>
+                                <path
+                                    fill="url(#half-star)"
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 
+3.967h4.175c.969 0 1.371 1.24.588 1.81l-3.376 
+2.455 1.286 3.967c.3.921-.755 1.688-1.54 
+1.118L10 13.011l-3.376 2.455c-.785.57-1.84-.197-1.54-1.118l1.286-3.967-3.376-2.455c-.783-.57-.38-1.81.588-1.81h4.175l1.286-3.967z"
+                                />
+                            </svg>
+
+                            <p className="ms-2 text-sm font-bold text-gray-900">4.8</p>
+                            <span className="w-1 h-1 mx-1.5 bg-gray-500 rounded-full"></span>
+                            <a
+                                href="#"
+                                className="text-sm font-medium text-gray-900 underline hover:no-underline"
+                            >
+                                85 reviews
+                            </a>
+                        </div>
+
+                        <p className="text-xl text-black font-bold mt-4 text-left">Rs.1,200</p>
+                        <p className="text-sm text-gray-500 mb-4 text-left">
+                            <span className="line-through mr-2">Rs.1,999</span>
+                            <span className="text-green-500 font-medium mr-2">25% OFF</span>
+                            · 42 Reviews
                         </p>
+                        <p className="text-sm text-black-500 mb-4 text-left">
+                            Select Color
+                        </p>
+                        <div className="flex flex-row gap-3">
+                        {thumbnailImages.slice(0,3).map((item, index) => (
+                            <img
+                                key={index}
+                                src={item}
+                                alt={`Thumbnail ${index + 1}`}
+                                className="w-20 h-20 object-contain p-1 border-2 border-gray-300 rounded-md hover:border-red-500 hover:shadow-md transition duration-200"
+                            />
+                        ))}
+                    </div>
+                    <br />
 
-                        <p className="text-xl text-black-600 font-bold">Rs.1,200</p>
-                        <p className="text-sm text-gray-500 mb-4">25% off · 42 Reviews</p>
-                        <div className="flex justify-center gap-4 mb-6 items-center">
+                        <div className="flex justify-start gap-4 mb-6 items-center">
                             <button className="flex items-center bg-white text-black border border-gray-300 px-6 py-2 rounded-md">
                                 <span className="material-symbols-outlined mr-2 text-black">
                                     shopping_cart
@@ -462,11 +478,12 @@ const ProductDetailPage = () => {
                             </button>
                         </div>
 
-                        <p className="text-gray-600">
+                        <p className="text-gray-600 text-left">
                             Boat's new wireless headphones deliver crystal clear audio and immersive sound.
                         </p>
                     </div>
                 </div>
+
             </div>
             {/* Description + Warranty tab */}
             <div className="max-w-7xl mx-auto mt-6 px-4">
