@@ -1,8 +1,17 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { RadialBarChart, RadialBar, Legend, ResponsiveContainer } from 'recharts';
 
 const ProductDetailPage = () => {
-    const icons = ["language", "favorite", "shopping_cart", "person"];
+    const navigateTo = useNavigate();
+    const icons = [{
+        icon: "language",
+        path: '/'
+    },
+    { icon: "favorite", path: '/' },
+    { icon: "shopping_cart", path: '/cart' },
+    { icon: "person", path: '/' }
+    ];
     const thumbnailImages = [
         "boat2.webp",
         "boat3.webp",
@@ -205,6 +214,8 @@ const ProductDetailPage = () => {
                             src="./caremall.png"
                             alt="Caremall Logo"
                             className="w-28 sm:w-20 md:w-28 lg:w-36 xl:w-44"
+                            style={{cursor:'pointer'}}
+                            onClick={() => navigateTo('/')}
                         />
 
 
@@ -347,9 +358,13 @@ const ProductDetailPage = () => {
                                             key={index}
                                             className="w-10 h-10 flex items-center justify-center border rounded-md bg-white hover:shadow cursor-pointer"
                                         >
-                                            <span className="material-symbols-outlined text-gray-600 text-base">
-                                                {icon}
+                                            <span
+                                                className="material-symbols-outlined text-gray-600 text-base cursor-pointer"
+                                                onClick={() => (window.location.href = icon.path)}
+                                            >
+                                                {icon.icon}
                                             </span>
+
                                         </div>
                                     ))}
                                 </div>
@@ -454,16 +469,16 @@ const ProductDetailPage = () => {
                             Select Color
                         </p>
                         <div className="flex flex-row gap-3">
-                        {thumbnailImages.slice(0,3).map((item, index) => (
-                            <img
-                                key={index}
-                                src={item}
-                                alt={`Thumbnail ${index + 1}`}
-                                className="w-20 h-20 object-contain p-1 border-2 border-gray-300 rounded-md hover:border-red-500 hover:shadow-md transition duration-200"
-                            />
-                        ))}
-                    </div>
-                    <br />
+                            {thumbnailImages.slice(0, 3).map((item, index) => (
+                                <img
+                                    key={index}
+                                    src={item}
+                                    alt={`Thumbnail ${index + 1}`}
+                                    className="w-20 h-20 object-contain p-1 border-2 border-gray-300 rounded-md hover:border-red-500 hover:shadow-md transition duration-200"
+                                />
+                            ))}
+                        </div>
+                        <br />
 
                         <div className="flex justify-start gap-4 mb-6 items-center">
                             <button className="flex items-center bg-white text-black border border-gray-300 px-6 py-2 rounded-md">
