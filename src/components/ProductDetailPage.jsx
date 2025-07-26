@@ -204,7 +204,7 @@ const ProductDetailPage = () => {
     ]
 
     return (
-        <div className="bg-gray-100">
+        <div className="bg-gray-100 font-dm">
             {/* Header */}
             <header className="bg-white shadow-sm">
                 <div className="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
@@ -214,7 +214,7 @@ const ProductDetailPage = () => {
                             src="./caremall.png"
                             alt="Caremall Logo"
                             className="w-28 sm:w-20 md:w-28 lg:w-36 xl:w-44"
-                            style={{cursor:'pointer'}}
+                            style={{ cursor: 'pointer' }}
                             onClick={() => navigateTo('/')}
                         />
 
@@ -492,10 +492,19 @@ const ProductDetailPage = () => {
                                 Buy This Item
                             </button>
                         </div>
+                        <div className="flex items-center space-x-6 d-flex justify-start">
+                            <div className="flex items-center space-x-1 pr-4 border-r border-light-black">
+                                <span className="material-symbols-outlined text-black">favorite</span>
+                                <p className="text-gray-600 text-left">Save To Wishlist</p>
+                            </div>
+                            <div className="flex items-center space-x-1">
+                                <span className="material-symbols-outlined text-black">share</span>
+                                <p className="text-gray-600 text-left">Share Product Link</p>
+                            </div>
+                        </div>
 
-                        <p className="text-gray-600 text-left">
-                            Boat's new wireless headphones deliver crystal clear audio and immersive sound.
-                        </p>
+
+
                     </div>
                 </div>
 
@@ -509,7 +518,7 @@ const ProductDetailPage = () => {
                                 <button
                                     id="descriptionTab"
                                     onClick={() => showTab('description')}
-                                    className="inline-block p-4 border-b-2 border-blue-600 text-blue-600 rounded-t-lg dark:text-blue-500 dark:border-blue-500"
+                                    className="inline-block p-4 border-b-2 border-orange-600 text-orange-600 rounded-t-lg dark:text-orange-500 dark:border-orange-500"
                                 >
                                     Description
                                 </button>
@@ -660,8 +669,17 @@ const ProductDetailPage = () => {
                                 />
                             </div>
 
-                            <p className="mt-2 text-sm">{product.heading}</p>
-                            <p className="text-sm font-semibold">Rs.{product.price}</p>
+
+                            <div className="flex justify-between items-start mb-1">
+                                <div className="flex flex-col">
+                                    <p className="text-sm">{product.heading}</p>
+                                    <p className="text-sm font-semibold">Rs.{product.price}</p>
+                                </div>
+                                <span className="material-symbols-outlined text-gray-700 text-sm p-1 bg-white cursor-pointer hover:bg-gray-200" style={{ backgroundColor: '#FF0000', color: '#ffffff', width: '42px', height: '42px', display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: '4px', fontSize: '20px' }}>
+                                    shopping_cart
+                                </span>
+                            </div>
+
                         </div>
                     ))}
                 </div>
