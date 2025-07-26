@@ -702,8 +702,15 @@ const ProductDetailPage = () => {
                                     className="w-full h-40 object-contain rounded-md"
                                 />
                             </div>
-                            <p className="mt-2 text-sm">{product.heading}</p>
-                            <p className="text-sm font-semibold">Rs.{product.price}</p>
+                            <div className="flex justify-between items-start mb-1">
+                                <div className="flex flex-col">
+                                    <p className="text-sm">{product.heading}</p>
+                                    <p className="text-sm font-semibold">Rs.{product.price}</p>
+                                </div>
+                                <span className="material-symbols-outlined text-gray-700 text-sm p-1 bg-white cursor-pointer hover:bg-gray-200" style={{ backgroundColor: '#FF0000', color: '#ffffff', width: '42px', height: '42px', display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: '4px', fontSize: '20px' }}>
+                                    shopping_cart
+                                </span>
+                            </div>
                         </div>
                     ))}
                 </div>
