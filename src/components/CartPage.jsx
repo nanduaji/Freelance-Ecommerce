@@ -149,7 +149,6 @@ const CartPage = () => {
                     </div>
                 </div>
             </header>
-
             {/* Main Grid */}
             <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-6">
                 {/* Cart Items */}
