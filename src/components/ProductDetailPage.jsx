@@ -353,14 +353,10 @@ const ProductDetailPage = () => {
                     </form>
                 </div>
             </header>
-
-
-
             {/* Breadcrumb */}
             <div className="max-w-7xl mx-auto px-4 text-sm text-gray-600 py-2">
                 Home / Headphones / Boat Nautical Sound Wireless Headphones
             </div>
-
             {/* Product Section */}
             <div className="max-w-7xl mx-auto p-4 grid grid-cols-1 md:grid-cols-2 gap-8 bg-white shadow-md rounded-md">
                 {/* Product Images */}
@@ -466,8 +462,7 @@ const ProductDetailPage = () => {
                     </div>
                 </div>
             </div>
-
-
+            {/* Description + Warranty tab */}
             <div className="max-w-7xl mx-auto mt-6 px-4">
                 <div className="w-full">
                     <div className="text-sm font-medium text-left text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
@@ -523,8 +518,6 @@ const ProductDetailPage = () => {
 
                 </div>
             </div>
-
-
             {/* Ratings */}
             <div className="grid grid-cols-1 md:grid-cols-6 gap-4 max-w-7xl mx-auto mt-6 px-4">
                 {/* Left: Ratings & Reviews */}
@@ -557,9 +550,8 @@ const ProductDetailPage = () => {
                     ))}
                 </div>
 
-                {/* Right: Pie Chart + Breakdown */}
+                {/* Right: Circular Rating Chart + Breakdown */}
                 <div className="md:col-span-2 flex flex-col items-center justify-center space-y-2 p-4 bg-white shadow-md rounded-md">
-                    {/* Circular Rating Chart */}
                     <div className="relative w-32 h-32">
                         <svg viewBox="0 0 36 36" className="w-full h-full transform -rotate-90">
                             <path
@@ -585,22 +577,16 @@ const ProductDetailPage = () => {
                             {avgRating.toFixed(1)}
                         </div>
                     </div>
-
-                    {/* Star Rating */}
                     <div className="flex items-center text-yellow-500 text-xl">
                         {'★'.repeat(Math.floor(avgRating))}
                         {avgRating % 1 >= 0.5 && '½'}
                     </div>
-
-                    {/* Summary Text */}
                     <p className="text-sm text-gray-700 font-medium text-center">
                         95% of buyers are satisfied
                     </p>
                     <p className="text-xs text-gray-500 text-center">
                         98 Ratings • 85 Reviews
                     </p>
-
-                    {/* Rating Breakdown */}
                     <div className="w-full space-y-2 pt-4">
                         {ratingData.map((item, i) => (
                             <div key={i} className="flex items-center space-x-2 w-full">
@@ -617,8 +603,6 @@ const ProductDetailPage = () => {
                     </div>
                 </div>
             </div>
-
-
             {/* Similar Products */}
             <div className="max-w-7xl mx-auto mt-6 px-4">
                 <h3 className="text-xl font-semibold mb-4">Similar Products</h3>
@@ -644,7 +628,6 @@ const ProductDetailPage = () => {
                     ))}
                 </div>
             </div>
-
             {/* Most Wanted */}
             <div className="max-w-7xl mx-auto mt-6 px-4">
                 <h3 className="text-xl font-semibold mb-4">Most Wanted</h3>
@@ -669,17 +652,25 @@ const ProductDetailPage = () => {
                     ))}
                 </div>
             </div>
-
             {/* Download App Section */}
             <div className="max-w-7xl mx-auto mt-8 px-4 bg-red-600 text-white py-10 rounded-xl">
                 <div className="flex flex-col md:flex-row items-center justify-center text-center md:text-left gap-0 md:gap-0">
-                    {/* Text Content */}
                     <div className="md:w-[52%]">
                         <h3 className="text-2xl font-bold mb-2">Unlock Exclusive Deals!</h3>
                         <p className="mb-4">Download the Caremall App</p>
-                        <div className="flex justify-center md:justify-start gap-4">
-                            <button className="bg-black px-4 py-2 rounded">Google Play</button>
+                        <div className="flex justify-center md:justify-start gap-4 mt-4">
+                            <img
+                                src="./googleplay.png"
+                                alt="Google Play"
+                                className="w-32  rounded-lg bg"
+                            />
+                            <img
+                                src="./applestore.png"
+                                alt="Apple App Store"
+                                className="w-32  rounded-lg"
+                            />
                         </div>
+
                     </div>
 
                     {/* Cover Photo */}
@@ -692,7 +683,6 @@ const ProductDetailPage = () => {
                     </div>
                 </div>
             </div>
-
             {/* Footer */}
             <footer className="bg-black text-white py-8 px-4 mt-8">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-4 gap-6 text-sm">
