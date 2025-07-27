@@ -20,23 +20,36 @@ export default function Login() {
                     <form>
                         <div className="mb-4">
                             <label className="text-sm font-medium text-gray-700">Email</label>
-                            <input
-                                type="email"
-                                placeholder="Enter Email here"
-                                className="w-full px-4 py-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
-                            />
+                            <div className="relative">
+                                <span className="absolute inset-y-0 left-3 flex items-center text-gray-400 mt-1">
+                                    <span class="material-symbols-outlined">
+                                        mail
+                                    </span>
+                                </span>
+                                <input
+                                    type="email"
+                                    placeholder="Enter Email here"
+                                    className="w-full pl-10 pr-4 py-2 mt-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                                />
+                            </div>
                         </div>
+
 
                         <div className="mb-4">
                             <label className="text-sm font-medium text-gray-700">Password</label>
                             <div className="relative">
+                                <span className="absolute inset-y-0 left-3 flex items-center text-gray-400 mt-1">
+                                    <span class="material-symbols-outlined">
+                                        key
+                                    </span>
+                                </span>
                                 <input
                                     type="password"
                                     placeholder="Enter Password here"
-                                    className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                                    className="w-full pl-10 pr-4 py-2 mt-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
                                 />
-                                <span className="absolute right-3 top-2.5 text-gray-500 cursor-pointer">
-                                    👁️
+                                <span className="material-symbols-outlined absolute right-3 top-2.5 text-gray-500 cursor-pointer">
+                                    visibility
                                 </span>
                             </div>
                         </div>
