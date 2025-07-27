@@ -26,7 +26,7 @@ export default function OTP() {
                                     placeholder="0"
                                     maxLength="1"
                                     pattern="\d*"
-                                    className="w-12 h-12 border border-gray-300 text-center text-2xl font-bold text-slate-900 bg-slate-100 rounded-md focus:outline-none focus:ring-2 focus:ring-red-300"
+                                    className="w-10 h-10 border border-gray-300 text-center text-2xl font-bold text-slate-900 bg-slate-100 rounded-md focus:outline-none focus:ring-2 focus:ring-red-300"
                                 />
                             ))}
                         </div>
