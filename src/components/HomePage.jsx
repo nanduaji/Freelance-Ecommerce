@@ -394,9 +394,8 @@ const HomePage = () => {
                         <br />
                         <div className="flex flex-col sm:flex-row items-center sm:items-start justify-center sm:justify-start gap-4 mb-6">
                             {/* Timer Boxes */}
-                            <div className="flex gap-4">
+                            <div className="flex gap-4 justify-center sm:justify-start">
                                 {[
-                                    { value: "01", label: "Day" },
                                     { value: "19", label: "Hrs" },
                                     { value: "48", label: "Min" },
                                     { value: "36", label: "Sec" },
@@ -411,14 +410,17 @@ const HomePage = () => {
                                 ))}
                             </div>
 
-                            {/* Remaining Text */}
+                            {/* Remaining Text (for large screens) */}
                             <h1 className="hidden sm:block text-[40px] font-extrabold ml-2 mt-3 text-transparent bg-clip-text bg-gradient-to-r from-white/70 to-white/30 drop-shadow-md">
                                 Remaining
                             </h1>
                         </div>
+
+                        {/* Remaining Text (for small screens, centered) */}
                         <h1 className="block sm:hidden w-full text-center text-[40px] font-extrabold mt-3 text-transparent bg-clip-text bg-gradient-to-r from-white/70 to-white/30 drop-shadow-md">
                             Remaining
                         </h1>
+
 
                     </div>
 
