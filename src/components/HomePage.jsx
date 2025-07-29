@@ -412,14 +412,13 @@ const HomePage = () => {
                             </div>
 
                             {/* Remaining Text */}
-                            <h1 className="hidden sm:block text-[50px] font-extrabold ml-6 text-transparent bg-clip-text bg-gradient-to-r from-white/70 to-white/30 drop-shadow-md">
+                            <h1 className="hidden sm:block text-[40px] font-extrabold ml-2 mt-3 text-transparent bg-clip-text bg-gradient-to-r from-white/70 to-white/30 drop-shadow-md">
                                 Remaining
                             </h1>
                         </div>
-
-
-
-
+                        <h1 className="block sm:hidden w-full text-center text-[40px] font-extrabold mt-3 text-transparent bg-clip-text bg-gradient-to-r from-white/70 to-white/30 drop-shadow-md">
+                            Remaining
+                        </h1>
 
                     </div>
 
