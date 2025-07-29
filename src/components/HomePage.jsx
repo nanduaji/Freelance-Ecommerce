@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./HomePage.module.css";
 
 const HomePage = () => {
     const navigateTo = useNavigate();
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const icons = [{
         icon: "language",
         path: '/'
@@ -130,8 +131,8 @@ const HomePage = () => {
             {/* Header */}
             <header className="bg-white shadow-sm">
                 <div className="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
-                    {/* Left: Logo and Navigation */}
-                    <div className="flex items-center gap-8">
+                    {/* Top: Logo + Hamburger */}
+                    <div className="flex justify-between w-full md:w-auto items-center">
                         <img
                             src="./caremall.png"
                             alt="Caremall Logo"
@@ -140,98 +141,58 @@ const HomePage = () => {
                             onClick={() => navigateTo('/')}
                         />
 
-
-                        <nav className="hidden sm:flex gap-6 text-sm text-gray-700">
-
-                            <a
-                                href="#"
-                                id="dropdownCategoriesLink"
-                                data-dropdown-toggle="dropdownCategories"
-                                class="inline-flex items-center gap-2 text-gray-900 dark:text-white"
+                        {/* Hamburger Icon for mobile */}
+                        <button
+                            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                            className="sm:hidden inline-flex items-center p-2 text-gray-600 hover:text-black focus:outline-none"
+                        >
+                            <svg
+                                className="w-6 h-6"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                viewBox="0 0 24 24"
                             >
-                                <span>Categories</span>
-                                <svg
-                                    class="w-2.5 h-2.5"
-                                    aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 10 6"
-                                >
-                                    <path
-                                        stroke="currentColor"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="m1 1 4 4 4-4"
-                                    />
-                                </svg>
-                            </a>
-
-                            <div
-                                id="dropdownCategories"
-                                class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700"
-                            >
-                                <ul
-                                    class="py-2 text-sm text-gray-700 dark:text-gray-200"
-                                    aria-labelledby="dropdownCategoriesLink"
-                                >
-                                    <li>
-                                        <a
-                                            href="#"
-                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                                        >
-                                            Technology
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="#"
-                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                                        >
-                                            Science
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="#"
-                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                                        >
-                                            Health
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="#"
-                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                                        >
-                                            Finance
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-
-
-
-                            <a href="/">New Arrivals</a>
-                            <a href="/">Most Wanted</a>
-                            <a href="/">Become a seller</a>
-                        </nav>
+                                {mobileMenuOpen ? (
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                ) : (
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                                )}
+                            </svg>
+                        </button>
                     </div>
 
-                    {/* Right: Search Form */}
+                    {/* Desktop Navigation */}
+                    <nav className="hidden sm:flex gap-6 text-sm text-gray-700">
+                        <a href="#" className="inline-flex items-center gap-2 text-gray-900">
+                            <span>Categories</span>
+                            <svg
+                                className="w-2.5 h-2.5"
+                                fill="none"
+                                viewBox="0 0 10 6"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    stroke="currentColor"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="m1 1 4 4 4-4"
+                                />
+                            </svg>
+                        </a>
+                        <a href="/">New Arrivals</a>
+                        <a href="/">Most Wanted</a>
+                        <a href="/">Become a seller</a>
+                    </nav>
+
+                    {/* Search & Icons */}
                     <form className="w-full max-w-md md:w-96">
-                        <label
-                            htmlFor="default-search"
-                            className="mb-2 text-sm font-medium text-gray-900 sr-only"
-                        >
-                            Search
-                        </label>
                         <div className="relative">
                             <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                                 <svg
                                     className="w-4 h-4 text-gray-500"
                                     aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg"
                                     fill="none"
                                     viewBox="0 0 20 20"
                                 >
@@ -245,25 +206,7 @@ const HomePage = () => {
                                 </svg>
                             </div>
                             <div className="flex items-center gap-4">
-                                {/* Search Box */}
                                 <div className="relative w-full max-w-md">
-                                    <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                        <svg
-                                            className="w-4 h-4 text-gray-500"
-                                            aria-hidden="true"
-                                            fill="none"
-                                            viewBox="0 0 20 20"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <path
-                                                stroke="currentColor"
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth="2"
-                                                d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                                            />
-                                        </svg>
-                                    </div>
                                     <input
                                         type="search"
                                         id="default-search"
@@ -273,7 +216,6 @@ const HomePage = () => {
                                     />
                                 </div>
 
-                                {/* 4 Icon Boxes */}
                                 <div className="flex gap-2">
                                     {icons.map((icon, index) => (
                                         <div
@@ -286,15 +228,23 @@ const HomePage = () => {
                                             >
                                                 {icon.icon}
                                             </span>
-
                                         </div>
                                     ))}
                                 </div>
                             </div>
-
                         </div>
                     </form>
                 </div>
+
+                {/* Mobile Menu */}
+                {mobileMenuOpen && (
+                    <div className="sm:hidden bg-orange-500 text-white p-4 space-y-4">
+                        <a href="#" className="block">Categories</a>
+                        <a href="/" className="block">New Arrivals</a>
+                        <a href="/" className="block">Most Wanted</a>
+                        <a href="/" className="block">Become a seller</a>
+                    </div>
+                )}
             </header>
 
             {/* Hero Banner */}
