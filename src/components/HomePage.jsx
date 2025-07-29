@@ -272,20 +272,21 @@ const HomePage = () => {
 
 
             {/* Brands */}
-            <div className="px-4 sm:px-6 lg:px-36 py-6 ">
-                <div className="flex flex-wrap justify-between items-center gap-y-6">
-                    {brands.map((brand, idx) => (
-                        <div key={idx} className="flex flex-col items-center text-center w-[100px]">
-                            <img
-                                src={brand.image}
-                                alt={brand.name}
-                                className={`${brand.size} object-contain mb-2`}
-                            />
-                            <span className="text-sm text-gray-600 font-medium">{brand.name}</span>
-                        </div>
-                    ))}
-                </div>
+            <div className="px-4 sm:px-6 lg:px-36 py-6">
+    <div className="flex overflow-x-auto sm:flex-wrap sm:justify-between items-center gap-y-6 no-scrollbar">
+        {brands.map((brand, idx) => (
+            <div key={idx} className="flex-shrink-0 flex flex-col items-center text-center w-[100px] mr-4">
+                <img
+                    src={brand.image}
+                    alt={brand.name}
+                    className={`${brand.size} object-contain mb-2`}
+                />
+                <span className="text-sm text-gray-600 font-medium">{brand.name}</span>
             </div>
+        ))}
+    </div>
+</div>
+
 
 
 
