@@ -273,23 +273,19 @@ const HomePage = () => {
 
             {/* Brands */}
             <div className="px-4 sm:px-6 lg:px-36 py-6">
-    <div className="flex overflow-x-auto sm:flex-wrap sm:justify-between items-center gap-y-6 no-scrollbar">
-        {brands.map((brand, idx) => (
-            <div key={idx} className="flex-shrink-0 flex flex-col items-center text-center w-[100px] mr-4">
-                <img
-                    src={brand.image}
-                    alt={brand.name}
-                    className={`${brand.size} object-contain mb-2`}
-                />
-                <span className="text-sm text-gray-600 font-medium">{brand.name}</span>
+                <div className="flex overflow-x-auto sm:flex-wrap sm:justify-between items-center gap-y-6 no-scrollbar">
+                    {brands.map((brand, idx) => (
+                        <div key={idx} className="flex-shrink-0 flex flex-col items-center text-center w-[100px] mr-4">
+                            <img
+                                src={brand.image}
+                                alt={brand.name}
+                                className={`${brand.size} object-contain mb-2`}
+                            />
+                            <span className="text-sm text-gray-600 font-medium">{brand.name}</span>
+                        </div>
+                    ))}
+                </div>
             </div>
-        ))}
-    </div>
-</div>
-
-
-
-
 
             {/* Categories */}
             <div className="max-w-7xl mx-auto px-4">
@@ -313,8 +309,6 @@ const HomePage = () => {
                 </div>
 
             </div>
-
-
 
             {/* Promo Banner */}
             <section className="text-white py-12 max-w-7xl mx-auto px-4 bg-gradient-to-r from-[#7e1414] to-black" style={{ borderRadius: '12px' }}>
@@ -378,15 +372,14 @@ const HomePage = () => {
                 </div>
             </section>
 
-
-
-
             {/* Product Section - Most Wanted */}
+            {/* Most Wanted Section */}
             <section className="max-w-7xl mx-auto mt-6 px-4">
                 <h3 className="text-xl font-semibold mb-4">Most Wanted</h3>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+
+                <div className="sm:grid sm:grid-cols-4 gap-4 flex overflow-x-auto space-x-4 no-scrollbar">
                     {mostWanted.map((product, i) => (
-                        <div key={i} className="bg-white rounded-lg shadow-md p-2">
+                        <div key={i} className="min-w-[160px] bg-white rounded-lg shadow-md p-2 flex-shrink-0 sm:min-w-0">
                             <div className="bg-gray-100 rounded-lg p-2">
                                 <div className="flex justify-end items-center space-x-1 mb-1">
                                     <span className="material-symbols-outlined text-gray-700 text-sm p-1 bg-white rounded-full cursor-pointer hover:bg-gray-200">
@@ -404,7 +397,20 @@ const HomePage = () => {
                                     <p className="text-sm">{product.heading}</p>
                                     <p className="text-sm font-semibold">Rs.{product.price}</p>
                                 </div>
-                                <span className="material-symbols-outlined text-gray-700 text-sm p-1 bg-white cursor-pointer hover:bg-gray-200" style={{ backgroundColor: '#FF0000', color: '#ffffff', width: '42px', height: '42px', display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: '4px', fontSize: '20px' }}>
+                                <span
+                                    className="material-symbols-outlined cursor-pointer hover:bg-gray-200"
+                                    style={{
+                                        backgroundColor: '#FF0000',
+                                        color: '#ffffff',
+                                        width: '42px',
+                                        height: '42px',
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        borderRadius: '4px',
+                                        fontSize: '20px',
+                                    }}
+                                >
                                     shopping_cart
                                 </span>
                             </div>
@@ -413,12 +419,13 @@ const HomePage = () => {
                 </div>
             </section>
 
-            {/* Product Section - New Arrivals */}
+            {/* New Arrivals Section */}
             <section className="max-w-7xl mx-auto mt-6 px-4">
                 <h3 className="text-xl font-semibold mb-4">New Arrivals</h3>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+
+                <div className="sm:grid sm:grid-cols-4 gap-4 flex overflow-x-auto space-x-4 no-scrollbar">
                     {newArrivals.map((product, i) => (
-                        <div key={i} className="bg-white rounded-lg shadow-md p-2">
+                        <div key={i} className="min-w-[160px] bg-white rounded-lg shadow-md p-2 flex-shrink-0 sm:min-w-0">
                             <div className="bg-gray-100 rounded-lg p-2">
                                 <div className="flex justify-end items-center space-x-1 mb-1">
                                     <span className="material-symbols-outlined text-gray-700 text-sm p-1 bg-white rounded-full cursor-pointer hover:bg-gray-200">
@@ -436,7 +443,20 @@ const HomePage = () => {
                                     <p className="text-sm">{product.heading}</p>
                                     <p className="text-sm font-semibold">Rs.{product.price}</p>
                                 </div>
-                                <span className="material-symbols-outlined text-gray-700 text-sm p-1 bg-white cursor-pointer hover:bg-gray-200" style={{ backgroundColor: '#FF0000', color: '#ffffff', width: '42px', height: '42px', display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: '4px', fontSize: '20px' }}>
+                                <span
+                                    className="material-symbols-outlined cursor-pointer hover:bg-gray-200"
+                                    style={{
+                                        backgroundColor: '#FF0000',
+                                        color: '#ffffff',
+                                        width: '42px',
+                                        height: '42px',
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        borderRadius: '4px',
+                                        fontSize: '20px',
+                                    }}
+                                >
                                     shopping_cart
                                 </span>
                             </div>
@@ -444,6 +464,7 @@ const HomePage = () => {
                     ))}
                 </div>
             </section>
+
             {/* <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-6">
                 <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm overflow-hidden w-full h-80 flex items-center justify-center">
                     <img class="max-h-full max-w-full object-contain border rounded-[10px]" src="./offer2.png" alt="Centered Image" />
@@ -456,9 +477,12 @@ const HomePage = () => {
             {/* Highlights */}
             <section className="max-w-7xl mx-auto mt-6 px-4">
                 <h3 className="text-xl font-semibold mb-4">Caremall Highlights</h3>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <div className="flex overflow-x-auto space-x-4 sm:grid sm:grid-cols-4 sm:gap-4">
                     {highlights.map((product, i) => (
-                        <div key={i} className="bg-white rounded-lg shadow-md p-2">
+                        <div
+                            key={i}
+                            className="flex-shrink-0 w-[170px] sm:w-auto bg-white rounded-lg shadow-md p-2"
+                        >
                             <div className="bg-gray-100 rounded-lg p-2">
                                 <div className="flex justify-end items-center space-x-1 mb-1">
                                     <span className="material-symbols-outlined text-gray-700 text-sm p-1 bg-white rounded-full cursor-pointer hover:bg-gray-200">
@@ -476,7 +500,20 @@ const HomePage = () => {
                                     <p className="text-sm">{product.heading}</p>
                                     <p className="text-sm font-semibold">Rs.{product.price}</p>
                                 </div>
-                                <span className="material-symbols-outlined text-gray-700 text-sm p-1 bg-white cursor-pointer hover:bg-gray-200" style={{ backgroundColor: '#FF0000', color: '#ffffff', width: '42px', height: '42px', display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: '4px', fontSize: '20px' }}>
+                                <span
+                                    className="material-symbols-outlined text-gray-700 text-sm p-1 bg-white cursor-pointer hover:bg-gray-200"
+                                    style={{
+                                        backgroundColor: "#FF0000",
+                                        color: "#ffffff",
+                                        width: "42px",
+                                        height: "42px",
+                                        display: "flex",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        borderRadius: "4px",
+                                        fontSize: "20px",
+                                    }}
+                                >
                                     shopping_cart
                                 </span>
                             </div>
@@ -484,6 +521,7 @@ const HomePage = () => {
                     ))}
                 </div>
             </section>
+
 
             {/* Testimonials */}
             <section className="bg-gray-100 py-10">
