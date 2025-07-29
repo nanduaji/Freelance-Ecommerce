@@ -238,7 +238,7 @@ const HomePage = () => {
 
                 {/* Mobile Menu */}
                 {mobileMenuOpen && (
-                    <div className="sm:hidden bg-orange-500 text-white p-4 space-y-4">
+                    <div className="sm:hidden bg-red-600 text-white p-4 space-y-4">
                         <a href="#" className="block">Categories</a>
                         <a href="/" className="block">New Arrivals</a>
                         <a href="/" className="block">Most Wanted</a>
