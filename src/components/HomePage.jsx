@@ -246,7 +246,6 @@ const HomePage = () => {
                     </div>
                 )}
             </header>
-
             {/* Hero Banner */}
             <div className="px-4 sm:px-6 lg:px-36 mt-4">
                 <section className="relative w-full rounded-lg overflow-hidden shadow-md">
@@ -269,8 +268,6 @@ const HomePage = () => {
 
                 </section>
             </div>
-
-
             {/* Brands */}
             <div className="px-4 sm:px-6 lg:px-36 py-6">
                 <div className="flex overflow-x-auto sm:flex-wrap sm:justify-between items-center gap-y-6 no-scrollbar">
@@ -286,7 +283,6 @@ const HomePage = () => {
                     ))}
                 </div>
             </div>
-
             {/* Categories */}
             <div className="max-w-7xl mx-auto px-4">
                 <h2 className="text-xl font-semibold mb-6">Explore Popular Categories</h2>
@@ -294,12 +290,13 @@ const HomePage = () => {
                     {categories.map((category, idx) => (
                         <div
                             key={idx}
-                            className="relative w-full max-w-auto h-[223px] rounded-xl overflow-hidden shadow hover:shadow-md bg-no-repeat bg-center bg-contain flex items-end border mb-5"
+                            className="relative w-full h-[223px] rounded-xl overflow-hidden shadow hover:shadow-md bg-no-repeat bg-center bg-cover flex items-end border mb-5"
                             style={{
                                 backgroundImage: `url(${category.image})`,
-                                borderRadius: '12px'
+                                borderRadius: '12px',
                             }}
                         >
+
                             <div className="w-full bg-white bg-opacity-90 p-3 flex justify-between items-center">
                                 <span className="text-sm font-medium truncate">{category.name}</span>
                                 <button className="text-lg font-bold">→</button>
@@ -309,7 +306,6 @@ const HomePage = () => {
                 </div>
 
             </div>
-
             {/* Promo Banner */}
             <section className="text-white py-12 max-w-7xl mx-auto px-4 bg-gradient-to-r from-[#7e1414] to-black" style={{ borderRadius: '12px' }}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
@@ -371,7 +367,6 @@ const HomePage = () => {
 
                 </div>
             </section>
-
             {/* Product Section - Most Wanted */}
             {/* Most Wanted Section */}
             <section className="max-w-7xl mx-auto mt-6 px-4">
@@ -418,7 +413,6 @@ const HomePage = () => {
                     ))}
                 </div>
             </section>
-
             {/* New Arrivals Section */}
             <section className="max-w-7xl mx-auto mt-6 px-4">
                 <h3 className="text-xl font-semibold mb-4">New Arrivals</h3>
@@ -521,8 +515,6 @@ const HomePage = () => {
                     ))}
                 </div>
             </section>
-
-
             {/* Testimonials */}
             <section className="bg-gray-100 py-10">
                 <h2 className="text-xl font-semibold text-center mb-6">What Our Customers Say</h2>
@@ -562,9 +554,6 @@ const HomePage = () => {
                     ))}
                 </div>
             </section>
-
-
-
             {/* Blog Section */}
             <section className="max-w-7xl mx-auto px-6 py-10 bg-white">
                 <h2 className="text-2xl font-semibold mb-8 text-center">Follow Our Blogs</h2>
@@ -656,11 +645,6 @@ const HomePage = () => {
                     </div>
                 </div>
             </section>
-
-
-
-
-
             {/* HomePage   Download */}
             <section className="max-w-7xl mx-auto mt-8 px-4 bg-red-600 text-white py-10 rounded-xl">
                 <div className="flex flex-col md:flex-row items-center justify-center text-center md:text-left gap-0 md:gap-0">
