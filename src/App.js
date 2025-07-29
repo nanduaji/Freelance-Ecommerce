@@ -7,18 +7,20 @@ import SignUp from './components/Signup';
 import OTP from './components/OtpVerification';
 import ForgotPassword from './components/ForgotPassword';
 import SetPassword from './components/SetPassword';
+import HomePage from './components/HomePage';
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Routes>
+          <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
           <Route path="/setpassword" element={<SetPassword />} />
           <Route path="/otp" element={<OTP />} />
-          <Route path="/" element={<ProductDetailPage />} />
+          <Route path="/productdetail" element={<ProductDetailPage />} />
           <Route path="/cart" element={<CartPage />} />
         </Routes>
       </div>
