@@ -31,100 +31,73 @@ const HomePage = () => {
     ];
     const mostWanted = [
         {
-            image: './powerbank.webp',
-            heading: 'Portable Power Bank 10000mAh',
-            price: '₹999'
+            image: './hoodie.png',
+            heading: 'Classic Cotton Hoodie',
+            price: '999'
         },
         {
-            image: './earbuds.webp',
+            image: './headphones.png',
             heading: 'Noise Cancelling Earbuds',
-            price: '₹3,999'
+            price: '3,999'
         },
         {
-            image: './wirelessmouse.webp',
-            heading: 'Wireless Mouse',
-            price: '₹599'
+            image: './adidas.png',
+            heading: 'Adidas Sports Sneakers',
+            price: '2,499'
         },
         {
-            image: './bluetoothspeaker.webp',
-            heading: 'Mini Bluetooth Speaker',
-            price: '₹799'
-        },
-        {
-            image: './tripod.webp',
-            heading: 'Smartphone Tripod Stand',
-            price: '₹649'
-        },
-        {
-            image: './charger.webp',
-            heading: 'USB Type-C Fast Charger',
-            price: '₹1,199'
+            image: './designer.png',
+            heading: 'Designer Handbag',
+            price: '4,299'
         }
-    ]
+    ];
+
     const newArrivals = [
         {
-            image: './powerbank.webp',
-            heading: 'Portable Power Bank 10000mAh',
-            price: '₹999'
+            image: './gshock.png',
+            heading: 'G-Shock Digital Watch',
+            price: '5,999'
         },
         {
-            image: './earbuds.webp',
-            heading: 'Noise Cancelling Earbuds',
-            price: '₹3,999'
+            image: './hpomen.png',
+            heading: 'HP Omen Gaming Laptop',
+            price: '89,999'
         },
         {
-            image: './wirelessmouse.webp',
-            heading: 'Wireless Mouse',
-            price: '₹599'
+            image: './perfume.png',
+            heading: 'Luxury Perfume Spray',
+            price: '1,299'
         },
         {
-            image: './bluetoothspeaker.webp',
-            heading: 'Mini Bluetooth Speaker',
-            price: '₹799'
-        },
-        {
-            image: './tripod.webp',
-            heading: 'Smartphone Tripod Stand',
-            price: '₹649'
-        },
-        {
-            image: './charger.webp',
-            heading: 'USB Type-C Fast Charger',
-            price: '₹1,199'
+            image: './nike.png',
+            heading: 'Nike Running Shoes',
+            price: '3,499'
         }
-    ]
+    ];
+
     const highlights = [
         {
-            image: './powerbank.webp',
-            heading: 'Portable Power Bank 10000mAh',
-            price: '₹999'
+            image: './lotion.png',
+            heading: 'Hydrating Body Lotion - 200ml',
+            price: '299'
         },
         {
-            image: './earbuds.webp',
-            heading: 'Noise Cancelling Earbuds',
-            price: '₹3,999'
+            image: './shoes.png',
+            heading: 'Running Shoes for Men - Size 9',
+            price: '1,999'
         },
         {
-            image: './wirelessmouse.webp',
-            heading: 'Wireless Mouse',
-            price: '₹599'
+            image: './apple.png',
+            heading: 'New Apple iPhone 14 Pro Cases',
+            price: '199'
         },
         {
-            image: './bluetoothspeaker.webp',
-            heading: 'Mini Bluetooth Speaker',
-            price: '₹799'
-        },
-        {
-            image: './tripod.webp',
-            heading: 'Smartphone Tripod Stand',
-            price: '₹649'
-        },
-        {
-            image: './charger.webp',
-            heading: 'USB Type-C Fast Charger',
-            price: '₹1,199'
+            image: './bag.png',
+            heading: 'Casual Laptop Backpack - 25L',
+            price: '899'
         }
-    ]
+    ];
+
 
     return (
         <div className="font-dm text-gray-800">
@@ -246,8 +219,21 @@ const HomePage = () => {
                     </div>
                 )}
             </header>
+            <div className="px-4 sm:px-6 xl:px-36 mt-4">
+                <div className="flex items-center space-x-2">
+                    <span className="material-symbols-outlined border rounded p-2 text-gray-500 cursor-pointer hover:bg-gray-200">
+                        location_on
+                    </span>
+                    <div className="flex flex-col">
+                        <p className="text-black-700 text-sm font-medium">
+                            <b>Home</b> <span className="text-[#B3B3B3] font-medium">ABC House, FEF Road...</span>
+                        </p>
+                        <a href="/" className="text-red-500 text-sm">Change Location</a>
+                    </div>
+                </div>
+            </div>
             {/* Hero Banner */}
-            <div className="px-4 sm:px-6 lg:px-36 mt-4">
+            <div className="px-4 sm:px-6 xl:px-36 mt-4">
                 <section className="relative w-full rounded-lg overflow-hidden shadow-md">
                     {/* Background Image */}
                     <img
@@ -269,7 +255,7 @@ const HomePage = () => {
                 </section>
             </div>
             {/* Brands */}
-            <div className="px-4 sm:px-6 lg:px-36 py-6">
+            <div className="px-4 sm:px-6 xl:px-36 py-6">
                 <div className="flex overflow-x-auto sm:flex-wrap sm:justify-between items-center gap-y-6 no-scrollbar">
                     {brands.map((brand, idx) => (
                         <div key={idx} className="flex-shrink-0 flex flex-col items-center text-center w-[100px] mr-4">
@@ -284,9 +270,9 @@ const HomePage = () => {
                 </div>
             </div>
             {/* Categories */}
-            <div className="max-w-7xl mx-auto px-4">
-                <h2 className="text-xl font-semibold mb-6">Explore Popular Categories</h2>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 justify-items-center px-4 sm:px-6 md:px-8">
+            <div className="px-4 sm:px-6 xl:px-36 mt-4">
+                <h2 className="text-xl font-semibold mb-6" style={{ fontSize: '32px', fontWeight: 500 }}>Explore Popular Categories</h2>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 justify-items-center">
                     {categories.map((category, idx) => (
                         <div
                             key={idx}
@@ -296,7 +282,6 @@ const HomePage = () => {
                                 borderRadius: '12px',
                             }}
                         >
-
                             <div className="w-full bg-white bg-opacity-90 p-3 flex justify-between items-center">
                                 <span className="text-sm font-medium truncate">{category.name}</span>
                                 <button className="text-lg font-bold">→</button>
@@ -304,10 +289,58 @@ const HomePage = () => {
                         </div>
                     ))}
                 </div>
+            </div>
+            {/* 4 Cards */}
+            <div className="hidden sm:block">
+                <div className="max-w-7xl mx-auto px-4 py-6">
+                    <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4  gap-[16px]">
+                        {["Deals of the Week", "Limited Time Deals", "Combo Offers", "Daily Deals"].map((title, idx) => {
+                            let background = '';
+                            let textColor = 'black';
+                            if (idx === 0 || idx === 2) {
+                                background = 'linear-gradient(135deg, #FF4141 0%, #992727 100%)';
+                                textColor = 'white';
+                            } else if (idx === 1 || idx === 3) {
+                                background = 'linear-gradient(135deg, #4b4b4b 0%, #181414 100%)';
+                                textColor = 'white';
+                            }
 
+                            return (
+                                <div
+                                    key={idx}
+                                    className="w-full h-[212px] rounded-[12px] p-4 flex flex-col justify-between shadow-sm relative"
+                                    style={{ background }}
+                                >
+                                    <h3
+                                        className="absolute"
+                                        style={{
+                                            fontWeight: 600,
+                                            fontSize: '32px',
+                                            color: textColor,
+                                            left: '27px',
+                                            top: '41px',
+                                        }}
+                                    >
+                                        {title}
+                                    </h3>
+                                    <p
+                                        className="absolute text-sm"
+                                        style={{
+                                            color: textColor,
+                                            left: '27px',
+                                            top: '150px',
+                                        }}
+                                    >
+                                        View All →
+                                    </p>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
             </div>
             {/* Promo Banner */}
-            <section className="text-white py-12 max-w-7xl mx-auto px-4 bg-gradient-to-r from-[#7e1414] to-black" style={{ borderRadius: '12px' }}>
+            <section className="text-white w-lg-[1200px] py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-36 mt-4 bg-gradient-to-r from-[#7e1414] to-black xl:ml-[135px] xl:mr-[135px]" style={{ borderRadius: '12px' }}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
 
                     {/* Left Side - Centered Image */}
@@ -370,44 +403,49 @@ const HomePage = () => {
             {/* Product Section - Most Wanted */}
             {/* Most Wanted Section */}
             <section className="max-w-7xl mx-auto mt-6 px-4">
-                <h3 className="text-xl font-semibold mb-4">Most Wanted</h3>
-
-                <div className="sm:grid sm:grid-cols-4 gap-4 flex overflow-x-auto space-x-4 no-scrollbar">
+                <h2 className="text-xl font-semibold mb-4" style={{ fontSize: '32px', fontWeight: 500 }}>Most Wanted</h2>
+                <div className="flex sm:grid sm:grid-cols-4 gap-[12px] overflow-x-auto sm:overflow-visible no-scrollbar">
                     {mostWanted.map((product, i) => (
-                        <div key={i} className="min-w-[160px] bg-white rounded-lg shadow-md p-2 flex-shrink-0 sm:min-w-0">
-                            <div className="bg-gray-100 rounded-lg p-2">
-                                <div className="flex justify-end items-center space-x-1 mb-1">
-                                    <span className="material-symbols-outlined text-gray-700 text-sm p-1 bg-white rounded-full cursor-pointer hover:bg-gray-200">
-                                        favorite
-                                    </span>
-                                </div>
+                        <div
+                            key={i}
+                            className="w-[318px] min-w-[318px] sm:w-auto sm:min-w-0 bg-white rounded-lg shadow-md p-2 flex-shrink-0"
+                        >
+                            {/* Image wrapper */}
+                            <div className="relative w-full h-[356px] rounded-md overflow-hidden">
+                                <span className="material-symbols-outlined absolute top-2 right-2 text-gray-700 text-sm p-1 bg-white rounded-full cursor-pointer hover:bg-gray-200 z-10">
+                                    favorite
+                                </span>
                                 <img
                                     src={product.image}
                                     alt={product.heading}
-                                    className="w-full h-40 object-contain rounded-md"
+                                    className="w-full h-[356px] object-cover"
                                 />
                             </div>
-                            <div className="flex justify-between items-start mb-1">
-                                <div className="flex flex-col">
-                                    <p className="text-sm">{product.heading}</p>
-                                    <p className="text-sm font-semibold">Rs.{product.price}</p>
+
+                            {/* Product info and cart */}
+                            <div className="flex flex-col gap-[12px] h-[96px] mt-3 w-full">
+                                <p className="text-[16px] text-[#303030]">{product.heading}</p>
+
+                                <div className="flex justify-between items-left w-full">
+                                    <p className="text-[32px] font-semibold text-[#303030]">Rs.{product.price}</p>
+
+                                    <span
+                                        className="material-symbols-outlined cursor-pointer hover:bg-gray-200"
+                                        style={{
+                                            backgroundColor: '#FF0000',
+                                            color: '#ffffff',
+                                            width: '42px',
+                                            height: '42px',
+                                            display: 'flex',
+                                            justifyContent: 'center',
+                                            alignItems: 'center',
+                                            borderRadius: '4px',
+                                            fontSize: '20px',
+                                        }}
+                                    >
+                                        shopping_cart
+                                    </span>
                                 </div>
-                                <span
-                                    className="material-symbols-outlined cursor-pointer hover:bg-gray-200"
-                                    style={{
-                                        backgroundColor: '#FF0000',
-                                        color: '#ffffff',
-                                        width: '42px',
-                                        height: '42px',
-                                        display: 'flex',
-                                        justifyContent: 'center',
-                                        alignItems: 'center',
-                                        borderRadius: '4px',
-                                        fontSize: '20px',
-                                    }}
-                                >
-                                    shopping_cart
-                                </span>
                             </div>
                         </div>
                     ))}
@@ -415,44 +453,51 @@ const HomePage = () => {
             </section>
             {/* New Arrivals Section */}
             <section className="max-w-7xl mx-auto mt-6 px-4">
-                <h3 className="text-xl font-semibold mb-4">New Arrivals</h3>
+                <h2 className="text-xl font-semibold mb-4" style={{ fontSize: '32px', fontWeight: 500 }}>New Arrivals</h2>
 
-                <div className="sm:grid sm:grid-cols-4 gap-4 flex overflow-x-auto space-x-4 no-scrollbar">
+                <div className="flex sm:grid sm:grid-cols-4 gap-[12px] overflow-x-auto sm:overflow-visible no-scrollbar">
                     {newArrivals.map((product, i) => (
-                        <div key={i} className="min-w-[160px] bg-white rounded-lg shadow-md p-2 flex-shrink-0 sm:min-w-0">
-                            <div className="bg-gray-100 rounded-lg p-2">
-                                <div className="flex justify-end items-center space-x-1 mb-1">
-                                    <span className="material-symbols-outlined text-gray-700 text-sm p-1 bg-white rounded-full cursor-pointer hover:bg-gray-200">
-                                        favorite
-                                    </span>
-                                </div>
+                        <div
+                            key={i}
+                            className="w-[318px] min-w-[318px] sm:w-auto sm:min-w-0 bg-white rounded-lg shadow-md p-2 flex-shrink-0"
+                        >
+                            {/* Image and favorite icon */}
+                            <div className="relative w-full h-[356px] rounded-md overflow-hidden">
+                                <span className="material-symbols-outlined absolute top-2 right-2 text-gray-700 text-sm p-1 bg-white rounded-full cursor-pointer hover:bg-gray-200 z-10">
+                                    favorite
+                                </span>
                                 <img
                                     src={product.image}
                                     alt={product.heading}
-                                    className="w-full h-40 object-contain rounded-md"
+                                    className="w-full h-[356px] object-cover"
                                 />
                             </div>
-                            <div className="flex justify-between items-start mb-1">
-                                <div className="flex flex-col">
-                                    <p className="text-sm">{product.heading}</p>
-                                    <p className="text-sm font-semibold">Rs.{product.price}</p>
+
+                            {/* Product info and cart */}
+                            
+                            <div className="flex flex-col gap-[12px] h-[96px] mt-3 w-full">
+                                <p className="text-[16px] text-[#303030]">{product.heading}</p>
+
+                                <div className="flex justify-between items-left w-full">
+                                    <p className="text-[32px] font-semibold text-[#303030]">Rs.{product.price}</p>
+
+                                    <span
+                                        className="material-symbols-outlined cursor-pointer hover:bg-gray-200"
+                                        style={{
+                                            backgroundColor: '#FF0000',
+                                            color: '#ffffff',
+                                            width: '42px',
+                                            height: '42px',
+                                            display: 'flex',
+                                            justifyContent: 'center',
+                                            alignItems: 'center',
+                                            borderRadius: '4px',
+                                            fontSize: '20px',
+                                        }}
+                                    >
+                                        shopping_cart
+                                    </span>
                                 </div>
-                                <span
-                                    className="material-symbols-outlined cursor-pointer hover:bg-gray-200"
-                                    style={{
-                                        backgroundColor: '#FF0000',
-                                        color: '#ffffff',
-                                        width: '42px',
-                                        height: '42px',
-                                        display: 'flex',
-                                        justifyContent: 'center',
-                                        alignItems: 'center',
-                                        borderRadius: '4px',
-                                        fontSize: '20px',
-                                    }}
-                                >
-                                    shopping_cart
-                                </span>
                             </div>
                         </div>
                     ))}
@@ -470,54 +515,60 @@ const HomePage = () => {
             </div> */}
             {/* Highlights */}
             <section className="max-w-7xl mx-auto mt-6 px-4">
-                <h3 className="text-xl font-semibold mb-4">Caremall Highlights</h3>
-                <div className="flex overflow-x-auto space-x-4 sm:grid sm:grid-cols-4 sm:gap-4">
+                <h2 className="text-xl font-semibold mb-4" style={{ fontSize: '32px', fontWeight: 500 }}>Caremall Highlights</h2>
+
+                <div className="flex sm:grid sm:grid-cols-4 gap-[12px] overflow-x-auto sm:overflow-visible no-scrollbar">
                     {highlights.map((product, i) => (
                         <div
                             key={i}
-                            className="flex-shrink-0 w-[170px] sm:w-auto bg-white rounded-lg shadow-md p-2"
+                            className="w-[318px] min-w-[318px] sm:w-auto sm:min-w-0 bg-white rounded-lg shadow-md p-2 flex-shrink-0"
                         >
-                            <div className="bg-gray-100 rounded-lg p-2">
-                                <div className="flex justify-end items-center space-x-1 mb-1">
-                                    <span className="material-symbols-outlined text-gray-700 text-sm p-1 bg-white rounded-full cursor-pointer hover:bg-gray-200">
-                                        favorite
-                                    </span>
-                                </div>
+                            {/* Image and favorite icon */}
+                            <div className="relative w-full h-[356px] rounded-md overflow-hidden">
+                                <span className="material-symbols-outlined absolute top-2 right-2 text-gray-700 text-sm p-1 bg-white rounded-full cursor-pointer hover:bg-gray-200 z-10">
+                                    favorite
+                                </span>
                                 <img
                                     src={product.image}
                                     alt={product.heading}
-                                    className="w-full h-40 object-contain rounded-md"
+                                    className="w-full h-[356px] object-cover"
                                 />
                             </div>
-                            <div className="flex justify-between items-start mb-1">
-                                <div className="flex flex-col">
-                                    <p className="text-sm">{product.heading}</p>
-                                    <p className="text-sm font-semibold">Rs.{product.price}</p>
+
+                            {/* Product info and cart */}
+                            
+                            <div className="flex flex-col gap-[12px] h-[96px] mt-3 w-full">
+                                <p className="text-[16px] text-[#303030]">{product.heading}</p>
+
+                                <div className="flex justify-between items-left w-full">
+                                    <p className="text-[32px] font-semibold text-[#303030]">Rs.{product.price}</p>
+
+                                    <span
+                                        className="material-symbols-outlined cursor-pointer hover:bg-gray-200"
+                                        style={{
+                                            backgroundColor: '#FF0000',
+                                            color: '#ffffff',
+                                            width: '42px',
+                                            height: '42px',
+                                            display: 'flex',
+                                            justifyContent: 'center',
+                                            alignItems: 'center',
+                                            borderRadius: '4px',
+                                            fontSize: '20px',
+                                        }}
+                                    >
+                                        shopping_cart
+                                    </span>
                                 </div>
-                                <span
-                                    className="material-symbols-outlined text-gray-700 text-sm p-1 bg-white cursor-pointer hover:bg-gray-200"
-                                    style={{
-                                        backgroundColor: "#FF0000",
-                                        color: "#ffffff",
-                                        width: "42px",
-                                        height: "42px",
-                                        display: "flex",
-                                        justifyContent: "center",
-                                        alignItems: "center",
-                                        borderRadius: "4px",
-                                        fontSize: "20px",
-                                    }}
-                                >
-                                    shopping_cart
-                                </span>
                             </div>
                         </div>
                     ))}
                 </div>
             </section>
+
             {/* Testimonials */}
-            <section className="bg-gray-100 py-10">
-                <h2 className="text-xl font-semibold text-center mb-6">What Our Customers Say</h2>
+            <section className="bg-white-100 py-10">
+                <h2 className="text-xl font-semibold text-center mb-6" style={{ fontSize: '32px', fontWeight: 500 }}>What Our Customers Say</h2>
                 <div className="grid md:grid-cols-3 gap-6 px-6 max-w-7xl mx-auto mt-6">
                     {[
                         {
@@ -539,46 +590,74 @@ const HomePage = () => {
                             rating: 5,
                         },
                     ].map((cust, idx) => (
-                        <div key={idx} className="bg-white p-4 shadow rounded">
-                            <div className="flex mb-2 text-yellow-500 text-dm">
+                        <div
+                            key={idx}
+                            className="bg-gray-100 p-4 shadow rounded-[12px] relative"
+                            style={{ height: "300px" }} // Adjust height to fit all absolute items
+                        >
+                            {/* Star container (absolute) */}
+                            <div className="flex text-dm absolute top-6 left-6">
                                 {Array.from({ length: 5 }).map((_, i) => (
-                                    <span key={i}>{i < cust.rating ? "★" : "☆"}</span>
+                                    <div
+                                        key={i}
+                                        className="w-[30px] h-[30px] flex items-center justify-center rounded-[5px] mr-1 bg-red-500"
+                                    >
+                                        <span className="text-white text-lg">
+                                            {i < cust.rating ? "★" : "☆"}
+                                        </span>
+                                    </div>
                                 ))}
                             </div>
-                            <p className="text-sm italic">“{cust.feedback}”</p>
-                            <div className="mt-3 text-right">
-                                <p className="font-medium text-gray-700">- {cust.name}</p>
+
+                            {/* Feedback */}
+                            <p className="text-sm italic absolute top-[116px] left-[24px] max-w-[350px] text-gray-600">
+                                “{cust.feedback}”
+                            </p>
+
+                            {/* Name and position */}
+                            <div className="absolute top-[219px] left-[24px] text-left">
+                                <p className="font-medium text-gray-700">{cust.name}</p>
                                 <p className="text-sm text-gray-500">{cust.position}</p>
                             </div>
                         </div>
+
+
                     ))}
                 </div>
             </section>
             {/* Blog Section */}
             <section className="max-w-7xl mx-auto px-6 py-10 bg-white">
-                <h2 className="text-2xl font-semibold mb-8 text-center">Follow Our Blogs</h2>
+                <h2 className="text-2xl font-semibold mb-8 text-center" style={{ fontSize: '32px', fontWeight: 500 }}>Follow Our Blogs</h2>
 
                 <div className="grid grid-cols-6 gap-6">
-                    {/* Left Large Blog Card */}
-                    <div className="col-span-6 md:col-span-4 bg-[#FAF6F2] rounded-xl overflow-hidden shadow-sm">
+                    {/* Left Large Blog Card with Overlay Text */}
+                    <div className="col-span-6 md:col-span-4 relative rounded-xl overflow-hidden shadow-sm h-[400px]">
                         <img
                             src="./blog1.png"
                             alt="Blog 1"
-                            className="w-full h-72 object-cover rounded-t-xl"
+                            className="w-full h-full object-cover absolute inset-0"
                         />
-                        <div className="p-6">
-                            <span className="text-xs text-gray-600 uppercase tracking-widest">
+
+                        {/* Optional: Add a dark gradient for better text readability */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent"></div>
+
+                        {/* Overlay Text Content */}
+                        <div className="relative z-10 p-6 text-white flex flex-col justify-end h-full">
+                            <span className="text-xs uppercase tracking-widest">
                                 Beauty & Skincare
                             </span>
-                            <h3 className="text-xl font-semibold mt-2 mb-3 leading-tight">
+                            <h3 className="text-2xl font-semibold mt-2 mb-3 leading-tight">
                                 Daily Skincare Routine Tips
                             </h3>
-                            <p className="text-sm text-gray-700 mb-4">
+                            <p className="text-sm mb-4 max-w-xl">
                                 Discover essential tips for the daily skincare routine to achieve a radiant glow.
                             </p>
-                            <button className="text-sm text-[#7D4533] font-semibold underline">Read more</button>
+                            <button className="text-sm font-semibold underline self-start">
+                                Read more
+                            </button>
                         </div>
                     </div>
+
 
                     {/* Right Vertical Cards */}
                     <div className="col-span-6 md:col-span-2 flex flex-col gap-6">
@@ -605,25 +684,25 @@ const HomePage = () => {
                         </div>
 
                         {/* Blog Card 3 */}
-                        <div className="flex bg-[#FAF6F2] rounded-xl overflow-hidden shadow-sm">
-                            <img
-                                src="./blog3.png"
-                                alt="Blog 3"
-                                className="w-24 h-24 object-cover rounded-l-xl"
-                            />
-                            <div className="p-4 flex flex-col justify-center">
-                                <span className="text-xs text-gray-600 uppercase tracking-widest">
-                                    Tech & Gadgets
-                                </span>
-                                <h4 className="text-base font-semibold mt-1 leading-tight">
-                                    Must-Have Gadgets
-                                </h4>
-                                <button className="text-sm text-[#7D4533] font-semibold underline mt-2 self-start">
-                                    Read more
-                                </button>
+                            <div className="flex bg-[#FAF6F2] rounded-xl overflow-hidden shadow-sm">
+                                <img
+                                    src="./blog3.png"
+                                    alt="Blog 3"
+                                    className="w-24 h-24 object-cover rounded-l-xl"
+                                />
+                                <div className="p-4 flex flex-col justify-center">
+                                    <span className="text-xs text-gray-600 uppercase tracking-widest">
+                                        Tech & Gadgets
+                                    </span>
+                                    <h4 className="text-base font-semibold mt-1 leading-tight">
+                                        Must-Have Gadgets
+                                    </h4>
+                                    <button className="text-sm text-[#7D4533] font-semibold underline mt-2 self-start">
+                                        Read more
+                                    </button>
 
+                                </div>
                             </div>
-                        </div>
                         <div className="flex bg-[#FAF6F2] rounded-xl overflow-hidden shadow-sm">
                             <img
                                 src="./blog2.png"
