@@ -392,28 +392,31 @@ const HomePage = () => {
                             </button>
                         </div>
                         <br />
-                        <div className="flex items-center justify-start gap-4 mb-6 grid-cols-1  md:grid-cols-2 xs:grid-cols-2">
+                        <div className="flex flex-col sm:flex-row items-center sm:items-start justify-center sm:justify-start gap-4 mb-6">
                             {/* Timer Boxes */}
-                            {[
-                                { value: "01", label: "Day" },
-                                { value: "19", label: "Hrs" },
-                                { value: "48", label: "Min" },
-                                { value: "36", label: "Sec" },
-                            ].map((item, i) => (
-                                <div
-                                    key={i}
-                                    className="w-[73px] h-[86px] bg-white/10 backdrop-blur-md border border-white/20 rounded-xl flex flex-col items-center justify-center text-white"
-                                >
-                                    <span className="text-[32px] font-bold leading-tight">{item.value}</span>
-                                    <span className="text-[16px] font-medium">{item.label}</span>
-                                </div>
-                            ))}
+                            <div className="flex gap-4">
+                                {[
+                                    { value: "01", label: "Day" },
+                                    { value: "19", label: "Hrs" },
+                                    { value: "48", label: "Min" },
+                                    { value: "36", label: "Sec" },
+                                ].map((item, i) => (
+                                    <div
+                                        key={i}
+                                        className="w-[73px] h-[86px] bg-white/10 backdrop-blur-md border border-white/20 rounded-xl flex flex-col items-center justify-center text-white"
+                                    >
+                                        <span className="text-[32px] font-bold leading-tight">{item.value}</span>
+                                        <span className="text-[16px] font-medium">{item.label}</span>
+                                    </div>
+                                ))}
+                            </div>
 
                             {/* Remaining Text */}
-                            <h1 className="text-[50px] font-extrabold ml-6 text-transparent bg-clip-text bg-gradient-to-r from-white/70 to-white/30 drop-shadow-md">
+                            <h1 className="hidden sm:block text-[50px] font-extrabold ml-6 text-transparent bg-clip-text bg-gradient-to-r from-white/70 to-white/30 drop-shadow-md">
                                 Remaining
                             </h1>
                         </div>
+
 
 
 
