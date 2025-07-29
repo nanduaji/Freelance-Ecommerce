@@ -408,13 +408,26 @@ const HomePage = () => {
                     {mostWanted.map((product, i) => (
                         <div
                             key={i}
-                            className="w-[318px] min-w-[318px] sm:w-auto sm:min-w-0 bg-white rounded-lg shadow-md p-2 flex-shrink-0"
+                            className="w-[318px] min-w-[318px] sm:w-auto sm:min-w-0 bg-white rounded-lg shadow-md flex-shrink-0"
                         >
                             {/* Image wrapper */}
                             <div className="relative w-full h-[356px] rounded-md overflow-hidden">
-                                <span className="material-symbols-outlined absolute top-2 right-2 text-gray-700 text-sm p-1 bg-white rounded-full cursor-pointer hover:bg-gray-200 z-10">
+                                <span
+                                    className="material-symbols-outlined absolute top-2 right-2 text-gray-700 text-sm cursor-pointer hover:bg-gray-200 z-10"
+                                    style={{
+                                        backgroundColor: 'white',
+                                        width: '48px',
+                                        height: '48px',
+                                        borderRadius: '436px',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        fontSize: '20px',
+                                    }}
+                                >
                                     favorite
                                 </span>
+
                                 <img
                                     src={product.image}
                                     alt={product.heading}
@@ -423,7 +436,7 @@ const HomePage = () => {
                             </div>
 
                             {/* Product info and cart */}
-                            <div className="flex flex-col gap-[12px] h-[96px] mt-3 w-full">
+                            <div className="flex flex-col gap-[12px] h-[96px] mt-3 w-full p-2">
                                 <p className="text-[16px] text-[#303030]">{product.heading}</p>
 
                                 <div className="flex justify-between items-left w-full">
@@ -459,13 +472,26 @@ const HomePage = () => {
                     {newArrivals.map((product, i) => (
                         <div
                             key={i}
-                            className="w-[318px] min-w-[318px] sm:w-auto sm:min-w-0 bg-white rounded-lg shadow-md p-2 flex-shrink-0"
+                            className="w-[318px] min-w-[318px] sm:w-auto sm:min-w-0 bg-white rounded-lg shadow-md flex-shrink-0"
                         >
                             {/* Image and favorite icon */}
                             <div className="relative w-full h-[356px] rounded-md overflow-hidden">
-                                <span className="material-symbols-outlined absolute top-2 right-2 text-gray-700 text-sm p-1 bg-white rounded-full cursor-pointer hover:bg-gray-200 z-10">
+                                <span
+                                    className="material-symbols-outlined absolute top-2 right-2 text-gray-700 text-sm cursor-pointer hover:bg-gray-200 z-10"
+                                    style={{
+                                        backgroundColor: 'white',
+                                        width: '48px',
+                                        height: '48px',
+                                        borderRadius: '436px',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        fontSize: '20px',
+                                    }}
+                                >
                                     favorite
                                 </span>
+
                                 <img
                                     src={product.image}
                                     alt={product.heading}
@@ -474,8 +500,8 @@ const HomePage = () => {
                             </div>
 
                             {/* Product info and cart */}
-                            
-                            <div className="flex flex-col gap-[12px] h-[96px] mt-3 w-full">
+
+                            <div className="flex flex-col gap-[12px] h-[96px] mt-3 w-full p-2">
                                 <p className="text-[16px] text-[#303030]">{product.heading}</p>
 
                                 <div className="flex justify-between items-left w-full">
@@ -521,13 +547,26 @@ const HomePage = () => {
                     {highlights.map((product, i) => (
                         <div
                             key={i}
-                            className="w-[318px] min-w-[318px] sm:w-auto sm:min-w-0 bg-white rounded-lg shadow-md p-2 flex-shrink-0"
+                            className="w-[318px] min-w-[318px] sm:w-auto sm:min-w-0 bg-white rounded-lg shadow-md flex-shrink-0"
                         >
                             {/* Image and favorite icon */}
                             <div className="relative w-full h-[356px] rounded-md overflow-hidden">
-                                <span className="material-symbols-outlined absolute top-2 right-2 text-gray-700 text-sm p-1 bg-white rounded-full cursor-pointer hover:bg-gray-200 z-10">
+                                <span
+                                    className="material-symbols-outlined absolute top-2 right-2 text-gray-700 text-sm cursor-pointer hover:bg-gray-200 z-10"
+                                    style={{
+                                        backgroundColor: 'white',
+                                        width: '48px',
+                                        height: '48px',
+                                        borderRadius: '436px',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        fontSize: '20px',
+                                    }}
+                                >
                                     favorite
                                 </span>
+
                                 <img
                                     src={product.image}
                                     alt={product.heading}
@@ -536,8 +575,8 @@ const HomePage = () => {
                             </div>
 
                             {/* Product info and cart */}
-                            
-                            <div className="flex flex-col gap-[12px] h-[96px] mt-3 w-full">
+
+                            <div className="flex flex-col gap-[12px] h-[96px] mt-3 w-full p-2">
                                 <p className="text-[16px] text-[#303030]">{product.heading}</p>
 
                                 <div className="flex justify-between items-left w-full">
@@ -684,25 +723,25 @@ const HomePage = () => {
                         </div>
 
                         {/* Blog Card 3 */}
-                            <div className="flex bg-[#FAF6F2] rounded-xl overflow-hidden shadow-sm">
-                                <img
-                                    src="./blog3.png"
-                                    alt="Blog 3"
-                                    className="w-24 h-24 object-cover rounded-l-xl"
-                                />
-                                <div className="p-4 flex flex-col justify-center">
-                                    <span className="text-xs text-gray-600 uppercase tracking-widest">
-                                        Tech & Gadgets
-                                    </span>
-                                    <h4 className="text-base font-semibold mt-1 leading-tight">
-                                        Must-Have Gadgets
-                                    </h4>
-                                    <button className="text-sm text-[#7D4533] font-semibold underline mt-2 self-start">
-                                        Read more
-                                    </button>
+                        <div className="flex bg-[#FAF6F2] rounded-xl overflow-hidden shadow-sm">
+                            <img
+                                src="./blog3.png"
+                                alt="Blog 3"
+                                className="w-24 h-24 object-cover rounded-l-xl"
+                            />
+                            <div className="p-4 flex flex-col justify-center">
+                                <span className="text-xs text-gray-600 uppercase tracking-widest">
+                                    Tech & Gadgets
+                                </span>
+                                <h4 className="text-base font-semibold mt-1 leading-tight">
+                                    Must-Have Gadgets
+                                </h4>
+                                <button className="text-sm text-[#7D4533] font-semibold underline mt-2 self-start">
+                                    Read more
+                                </button>
 
-                                </div>
                             </div>
+                        </div>
                         <div className="flex bg-[#FAF6F2] rounded-xl overflow-hidden shadow-sm">
                             <img
                                 src="./blog2.png"
@@ -764,7 +803,7 @@ const HomePage = () => {
                         <input
                             type="email"
                             placeholder="Enter your email"
-                            className="w-full p-2 rounded text-black"
+                            className="w-full rounded text-black"
                         />
                         <button className="bg-red-600 mt-2 px-4 py-2 rounded text-white">Subscribe</button>
                     </div>
