@@ -269,6 +269,7 @@ const HomePage = () => {
                     ))}
                 </div>
             </div>
+            <br />
             {/* Categories */}
             <div className="px-4 sm:px-6 xl:px-36 mt-4">
                 <h2 className="text-xl font-semibold mb-6" style={{ fontSize: '32px', fontWeight: 500 }}>Explore Popular Categories</h2>
@@ -290,8 +291,9 @@ const HomePage = () => {
                     ))}
                 </div>
             </div>
+            <br />
             {/* 4 Cards */}
-            <div className="hidden sm:block">
+            <div className="hidden sm:block ">
                 <div className="max-w-7xl mx-auto px-4 py-6">
                     <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4  gap-[16px]">
                         {["Deals of the Week", "Limited Time Deals", "Combo Offers", "Daily Deals"].map((title, idx) => {
@@ -339,67 +341,71 @@ const HomePage = () => {
                     </div>
                 </div>
             </div>
+            <br />
             {/* Promo Banner */}
-            <section className="text-white w-lg-[1200px] py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-36 mt-4 bg-gradient-to-r from-[#7e1414] to-black xl:ml-[135px] xl:mr-[135px]" style={{ borderRadius: '12px' }}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+            <section className="text-white max-w-7xl mx-auto mt-4 bg-gradient-to-r from-[#7e1414] to-black xl:ml-[135px] xl:mr-[135px] rounded-[12px] overflow-hidden max-h-[376px]">
+                <div className="grid grid-cols-1 md:grid-cols-2 h-full">
 
-                    {/* Left Side - Centered Image */}
-                    <div className="flex justify-center items-center">
+                    {/* Left Side - Image Full Height */}
+                    <div className="hidden md:block h-[376px] w-full">
                         <img
                             src="/45off.png"
                             alt="Men's Wear Sale"
-                            className="h-[300px] object-contain rounded-lg shadow-lg"
+                            className="w-full h-full object-cover object-top md:object-[center_20%]"
                         />
-                    </div>
-
-                    {/* Right Side - Text Content */}
-                    <div className="md:pl-6 border-t md:border-t-0 md:border-l md:border-white/30 md:ml-4 pt-6 md:pt-0">
-                        <h2 className="text-4xl font-bold mb-4 text-center md:text-left">
-                            45% OFF on Men's Wear This Week!
-                        </h2>
-                        <p className="text-md mb-6 text-center md:text-left">
-                            Level up your style with our exclusive collection. Limited time only – don’t miss out!
-                        </p>
-                        <div className="flex justify-center md:justify-start">
-                            <button className="bg-red-500 hover:bg-red-600 px-6 py-2 rounded text-white font-semibold transition duration-300">
-                                Grab the deal
-                            </button>
-                        </div>
-                        <br />
-                        <div className="flex flex-col sm:flex-row items-center sm:items-start justify-center sm:justify-start gap-4 mb-6">
-                            {/* Timer Boxes */}
-                            <div className="flex gap-4 justify-center sm:justify-start">
-                                {[
-                                    { value: "19", label: "Hrs" },
-                                    { value: "48", label: "Min" },
-                                    { value: "36", label: "Sec" },
-                                ].map((item, i) => (
-                                    <div
-                                        key={i}
-                                        className="w-[73px] h-[86px] bg-white/10 backdrop-blur-md border border-white/20 rounded-xl flex flex-col items-center justify-center text-white"
-                                    >
-                                        <span className="text-[32px] font-bold leading-tight">{item.value}</span>
-                                        <span className="text-[16px] font-medium">{item.label}</span>
-                                    </div>
-                                ))}
-                            </div>
-
-                            {/* Remaining Text (for large screens) */}
-                            <h1 className="hidden sm:block text-[40px] font-extrabold ml-2 mt-3 text-transparent bg-clip-text bg-gradient-to-r from-white/70 to-white/30 drop-shadow-md">
-                                Remaining
-                            </h1>
-                        </div>
-
-                        {/* Remaining Text (for small screens, centered) */}
-                        <h1 className="block sm:hidden w-full text-center text-[40px] font-extrabold mt-3 text-transparent bg-clip-text bg-gradient-to-r from-white/70 to-white/30 drop-shadow-md">
-                            Remaining
-                        </h1>
-
 
                     </div>
+
+                    {/* Right Side - Centered Content */}
+                    <div className="h-[376px] flex items-center px-3 sm:px-6 md:px-10 bg-gradient-to-r from-[#7e1414] to-black">
+    <div className="w-full">
+        <h2 className="text-3xl font-bold mb-4 text-left">
+            Level up your Style,
+            45% OFF on Men's Wear This Week!
+        </h2>
+
+        <div className="flex justify-start mb-4">
+            <button className="bg-red-500 hover:bg-red-600 px-6 py-2 rounded text-white font-semibold transition duration-300">
+                Grab the deal
+            </button>
+        </div>
+
+        <div className="flex flex-col sm:flex-row items-start justify-start gap-4">
+            {/* Timer Boxes */}
+            <div className="flex gap-4 justify-start">
+                {[{ value: "01", label: "Day" },
+                { value: "19", label: "Hrs" },
+                { value: "48", label: "Min" },
+                { value: "36", label: "Sec" },
+                ].map((item, i) => (
+                    <div
+                        key={i}
+                        className="w-[60px] h-[76px] bg-white/10 backdrop-blur-md border border-white/20 rounded-xl flex flex-col items-center justify-center text-white"
+                    >
+                        <span className="text-[26px] font-bold leading-tight">{item.value}</span>
+                        <span className="text-[14px] font-medium">{item.label}</span>
+                    </div>
+                ))}
+            </div>
+
+            {/* Remaining Text (large screens) */}
+            <h1 className="hidden sm:block text-[32px] font-extrabold ml-2 mt-2 text-transparent bg-clip-text bg-gradient-to-r from-white/70 to-white/30 drop-shadow-md">
+                Remaining
+            </h1>
+        </div>
+
+        {/* Remaining Text (small screens) */}
+        <h1 className="block sm:hidden text-left text-[32px] font-extrabold mt-3 text-transparent bg-clip-text bg-gradient-to-r from-white/70 to-white/30 drop-shadow-md">
+            Remaining
+        </h1>
+    </div>
+</div>
+
+
 
                 </div>
             </section>
+            <br />
             {/* Product Section - Most Wanted */}
             {/* Most Wanted Section */}
             <section className="max-w-7xl mx-auto mt-6 px-4">
@@ -464,6 +470,7 @@ const HomePage = () => {
                     ))}
                 </div>
             </section>
+            <br />
             {/* New Arrivals Section */}
             <section className="max-w-7xl mx-auto mt-6 px-4">
                 <h2 className="text-xl font-semibold mb-4" style={{ fontSize: '32px', fontWeight: 500 }}>New Arrivals</h2>
@@ -529,7 +536,7 @@ const HomePage = () => {
                     ))}
                 </div>
             </section>
-
+            <br />
             {/* <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-6">
                 <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm overflow-hidden w-full h-80 flex items-center justify-center">
                     <img class="max-h-full max-w-full object-contain border rounded-[10px]" src="./offer2.png" alt="Centered Image" />
@@ -604,7 +611,7 @@ const HomePage = () => {
                     ))}
                 </div>
             </section>
-
+            <br />
             {/* Testimonials */}
             <section className="bg-white-100 py-10">
                 <h2 className="text-xl font-semibold text-center mb-6" style={{ fontSize: '32px', fontWeight: 500 }}>What Our Customers Say</h2>
@@ -664,6 +671,7 @@ const HomePage = () => {
                     ))}
                 </div>
             </section>
+            <br />
             {/* Blog Section */}
             <section className="max-w-7xl mx-auto px-6 py-10 bg-white">
                 <h2 className="text-2xl font-semibold mb-8 text-center" style={{ fontSize: '32px', fontWeight: 500 }}>Follow Our Blogs</h2>
@@ -763,6 +771,7 @@ const HomePage = () => {
                     </div>
                 </div>
             </section>
+            <br />
             {/* HomePage   Download */}
             <section className="max-w-7xl mx-auto mt-8 px-4 bg-red-600 text-white py-10 rounded-xl">
                 <div className="flex flex-col md:flex-row items-center justify-center text-center md:text-left gap-0 md:gap-0">
@@ -794,7 +803,7 @@ const HomePage = () => {
                     </div>
                 </div>
             </section>
-
+            <br />
             {/* Footer */}
             <footer className="bg-black text-white py-8 px-4 mt-8">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-4 gap-6 text-sm">
