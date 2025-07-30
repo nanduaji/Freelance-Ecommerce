@@ -100,7 +100,7 @@ const HomePage = () => {
 
 
     return (
-        <div className="font-dm text-gray-800 p-5">
+        <div className="font-dm text-gray-800">
             {/* Header */}
             <header className="bg-white shadow-sm">
                 <div className="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
@@ -343,7 +343,7 @@ const HomePage = () => {
             </div>
             <br />
             {/* Promo Banner */}
-            <section className="text-white w-[420px] max-w-7xl mx-auto mt-4 bg-gradient-to-r from-[#7e1414] to-black xl:ml-[135px] xl:mr-[135px] rounded-[12px] overflow-hidden max-h-[376px]">
+            <section className="text-white w-[450px] sm:w-full max-w-7xl mx-auto mt-4 bg-gradient-to-r from-[#7e1414] to-black xl:ml-[135px] xl:mr-[135px] rounded-[12px] overflow-hidden max-h-[376px]">
                 <div className="grid grid-cols-1 md:grid-cols-2 h-full">
 
                     {/* Left Side - Image Full Height */}
@@ -358,48 +358,48 @@ const HomePage = () => {
 
                     {/* Right Side - Centered Content */}
                     <div className="h-[376px] flex items-center px-3 sm:px-6 md:px-10 bg-gradient-to-r from-[#7e1414] to-black">
-    <div className="w-full">
-        <h2 className="text-3xl font-bold mb-4 text-left">
-            Level up your Style,
-            45% OFF on Men's Wear This Week!
-        </h2>
+                        <div className="w-full">
+                            <h2 className="text-3xl font-bold mb-4 text-left">
+                                Level up your Style,
+                                45% OFF on Men's Wear This Week!
+                            </h2>
 
-        <div className="flex justify-start mb-4">
-            <button className="bg-red-500 hover:bg-red-600 px-6 py-2 rounded text-white font-semibold transition duration-300">
-                Grab the deal
-            </button>
-        </div>
+                            <div className="flex justify-start mb-4">
+                                <button className="bg-red-500 hover:bg-red-600 px-6 py-2 rounded text-white font-semibold transition duration-300">
+                                    Grab the deal
+                                </button>
+                            </div>
 
-        <div className="flex flex-col sm:flex-row items-start justify-start gap-4">
-            {/* Timer Boxes */}
-            <div className="flex gap-4 justify-start">
-                {[{ value: "01", label: "Day" },
-                { value: "19", label: "Hrs" },
-                { value: "48", label: "Min" },
-                { value: "36", label: "Sec" },
-                ].map((item, i) => (
-                    <div
-                        key={i}
-                        className="w-[60px] h-[76px] bg-white/10 backdrop-blur-md border border-white/20 rounded-xl flex flex-col items-center justify-center text-white"
-                    >
-                        <span className="text-[26px] font-bold leading-tight">{item.value}</span>
-                        <span className="text-[14px] font-medium">{item.label}</span>
+                            <div className="flex flex-col sm:flex-row items-start justify-start gap-4">
+                                {/* Timer Boxes */}
+                                <div className="flex gap-4 justify-start">
+                                    {[{ value: "01", label: "Day" },
+                                    { value: "19", label: "Hrs" },
+                                    { value: "48", label: "Min" },
+                                    { value: "36", label: "Sec" },
+                                    ].map((item, i) => (
+                                        <div
+                                            key={i}
+                                            className="w-[60px] h-[76px] bg-white/10 backdrop-blur-md border border-white/20 rounded-xl flex flex-col items-center justify-center text-white"
+                                        >
+                                            <span className="text-[26px] font-bold leading-tight">{item.value}</span>
+                                            <span className="text-[14px] font-medium">{item.label}</span>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                {/* Remaining Text (large screens) */}
+                                <h1 className="hidden sm:block text-[32px] font-extrabold ml-2 mt-2 text-transparent bg-clip-text bg-gradient-to-r from-white/70 to-white/30 drop-shadow-md">
+                                    Remaining
+                                </h1>
+                            </div>
+
+                            {/* Remaining Text (small screens) */}
+                            <h1 className="block sm:hidden text-left text-[32px] font-extrabold mt-3 text-transparent bg-clip-text bg-gradient-to-r from-white/70 to-white/30 drop-shadow-md">
+                                Remaining
+                            </h1>
+                        </div>
                     </div>
-                ))}
-            </div>
-
-            {/* Remaining Text (large screens) */}
-            <h1 className="hidden sm:block text-[32px] font-extrabold ml-2 mt-2 text-transparent bg-clip-text bg-gradient-to-r from-white/70 to-white/30 drop-shadow-md">
-                Remaining
-            </h1>
-        </div>
-
-        {/* Remaining Text (small screens) */}
-        <h1 className="block sm:hidden text-left text-[32px] font-extrabold mt-3 text-transparent bg-clip-text bg-gradient-to-r from-white/70 to-white/30 drop-shadow-md">
-            Remaining
-        </h1>
-    </div>
-</div>
 
 
 
@@ -773,32 +773,33 @@ const HomePage = () => {
             </section>
             <br />
             {/* HomePage   Download */}
-            <section className="max-w-7xl mx-auto mt-8 px-4 bg-red-600 text-white py-10 rounded-xl">
-                <div className="flex flex-col md:flex-row items-center justify-center text-center md:text-left gap-0 md:gap-0">
-                    <div className="md:w-[52%]">
-                        <h3 className="text-2xl font-bold mb-2">Unlock Exclusive Deals!</h3>
-                        <p className="mb-4">Download the Caremall App</p>
-                        <div className="flex justify-center md:justify-start gap-4 mt-4">
+            <section className="max-w-7xl w-[450px] sm:w-full  mx-auto mt-10 px-4 sm:px-6 md:px-10 bg-gradient-to-r from-red-600 via-red-500 to-red-600 text-white py-12 rounded-2xl shadow-xl overflow-hidden">
+                <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-10">
+
+                    {/* Left: Text Content */}
+                    <div className="md:w-1/2 text-center md:text-left">
+                        <h3 className="text-3xl sm:text-4xl font-extrabold mb-3 leading-tight">Unlock Exclusive Deals!</h3>
+                        <p className="text-lg sm:text-xl mb-6 font-medium">Download the Caremall App and start saving today.</p>
+                        <div className="flex justify-center md:justify-start gap-4">
                             <img
                                 src="./googleplay.png"
                                 alt="Google Play"
-                                className="w-32  rounded-lg bg"
+                                className="w-32 sm:w-36 hover:scale-105 transition-transform duration-300 rounded-lg shadow-lg"
                             />
                             <img
                                 src="./applestore.png"
                                 alt="Apple App Store"
-                                className="w-32  rounded-lg"
+                                className="w-32 sm:w-36 hover:scale-105 transition-transform duration-300 rounded-lg shadow-lg"
                             />
                         </div>
-
                     </div>
 
-                    {/* Cover Photo */}
-                    <div className="md:w-[35%] flex justify-center">
+                    {/* Right: App Image */}
+                    <div className="md:w-1/2 flex justify-center">
                         <img
                             src="./coverphoto.png"
                             alt="App Promo"
-                            className="w-60 md:w-72 transform -rotate-6 rounded-lg"
+                            className="w-52 sm:w-64 md:w-72 transform -rotate-6 rounded-xl shadow-2xl object-contain"
                         />
                     </div>
                 </div>
