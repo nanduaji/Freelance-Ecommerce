@@ -220,16 +220,17 @@ const HomePage = () => {
                                 </svg>
                             </div>
                             <div className="flex items-center gap-4">
-                                <div className="relative w-full max-w-md">
+                                <div className="relative w-full max-w-sm">
+                                    <span className="material-symbols-outlined absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 text-base">
+                                        search
+                                    </span>
                                     <input
                                         type="search"
-                                        id="default-search"
-                                        className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
                                         placeholder="Search products..."
+                                        className="block w-full pl-10 pr-4 py-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
                                         required
                                     />
                                 </div>
-
                                 <div className="flex gap-2">
                                     {icons.map((icon, index) => (
                                         <div
@@ -296,18 +297,23 @@ const HomePage = () => {
                 </section>
             </div>
             {/* Brands */}
-            <div className="px-4 sm:px-6 xl:px-36 py-6">
-                <div className="flex overflow-x-auto sm:flex-wrap sm:justify-between items-center gap-y-6 no-scrollbar">
-                    {brands.map((brand, idx) => (
-                        <div key={idx} className="flex-shrink-0 flex flex-col items-center text-center w-[100px] mr-4">
-                            <img
-                                src={brand.image}
-                                alt={brand.name}
-                                className={`${brand.size} object-contain mb-2`}
-                            />
-                            <span className="text-sm text-gray-600 font-medium">{brand.name}</span>
-                        </div>
-                    ))}
+            <div className="px-4 sm:px-6 xl:px-36 py-6 bg-white">
+                <div className="relative overflow-hidden">
+                    <div className="flex animate-scroll gap-x-8 w-max">
+                        {[...brands, ...brands].map((brand, idx) => (
+                            <div
+                                key={idx}
+                                className="flex-shrink-0 flex flex-col items-center text-center w-[100px]"
+                            >
+                                <img
+                                    src={brand.image}
+                                    alt={brand.name}
+                                    className={`${brand.size} object-contain mb-2`}
+                                />
+                                <span className="text-sm text-gray-600 font-medium">{brand.name}</span>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
             <br />
@@ -326,7 +332,9 @@ const HomePage = () => {
                         >
                             <div className="w-full bg-white bg-opacity-90 p-3 flex justify-between items-center">
                                 <span className="text-sm font-medium truncate">{category.name}</span>
-                                <button className="text-lg font-bold">→</button>
+                                <button className="text-lg font-bold"><span class="material-symbols-outlined">
+                                    arrow_right_alt
+                                </span></button>
                             </div>
                         </div>
                     ))}
@@ -487,8 +495,7 @@ const HomePage = () => {
                                 <p className="text-[16px] text-[#303030]">{product.heading}</p>
 
                                 <div className="flex justify-between items-left w-full">
-                                    <p className="text-[32px] font-semibold text-[#303030]">Rs.{product.price}</p>
-
+                                    <p className="text-[32px] font-medium text-[#303030]">Rs.{product.price}</p>
                                     <span
                                         className="material-symbols-outlined cursor-pointer hover:bg-gray-200"
                                         style={{
@@ -553,7 +560,7 @@ const HomePage = () => {
                                 <p className="text-[16px] text-[#303030]">{product.heading}</p>
 
                                 <div className="flex justify-between items-left w-full">
-                                    <p className="text-[32px] font-semibold text-[#303030]">Rs.{product.price}</p>
+                                    <p className="text-[32px] font-medium text-[#303030]">Rs.{product.price}</p>
 
                                     <span
                                         className="material-symbols-outlined cursor-pointer hover:bg-gray-200"
@@ -591,7 +598,7 @@ const HomePage = () => {
             <section className="max-w-7xl mx-auto px-4 mt-10">
                 {/* Header */}
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-2">
-                    <h2 className="text-2xl font-semibold">Fashion Collection</h2>
+                    <h2 className="text-2xl font-semibold" style={{ fontSize: '32px', fontWeight: 500 }}>Fashion Collection</h2>
                     <button className="text-red-600 font-medium hover:underline">
                         View Collection
                     </button>
@@ -673,7 +680,7 @@ const HomePage = () => {
                                 <p className="text-[16px] text-[#303030]">{product.heading}</p>
 
                                 <div className="flex justify-between items-left w-full">
-                                    <p className="text-[32px] font-semibold text-[#303030]">Rs.{product.price}</p>
+                                    <p className="text-[32px] font-medium text-[#303030]">Rs.{product.price}</p>
 
                                     <span
                                         className="material-symbols-outlined cursor-pointer hover:bg-gray-200"
@@ -755,7 +762,7 @@ const HomePage = () => {
                                 <p className="text-[16px] text-[#303030]">{product.heading}</p>
 
                                 <div className="flex justify-between items-left w-full">
-                                    <p className="text-[32px] font-semibold text-[#303030]">Rs.{product.price}</p>
+                                    <p className="text-[32px] font-medium text-[#303030]">Rs.{product.price}</p>
 
                                     <span
                                         className="material-symbols-outlined cursor-pointer hover:bg-gray-200"
@@ -806,7 +813,7 @@ const HomePage = () => {
                         <div
                             key={i}
                             className="w-[318px] min-w-[318px] lg:w-auto lg:min-w-0 bg-white rounded-lg shadow-md flex-shrink-0"
-                            
+
                         >
                             {/* Image and favorite icon */}
                             <div className="relative w-full h-[356px] rounded-md overflow-hidden">
@@ -839,7 +846,7 @@ const HomePage = () => {
                                 <p className="text-[16px] text-[#303030]">{product.heading}</p>
 
                                 <div className="flex justify-between items-left w-full">
-                                    <p className="text-[32px] font-semibold text-[#303030]">Rs.{product.price}</p>
+                                    <p className="text-[32px] font-medium text-[#303030]">Rs.{product.price}</p>
 
                                     <span
                                         className="material-symbols-outlined cursor-pointer hover:bg-gray-200"
@@ -921,6 +928,17 @@ const HomePage = () => {
 
 
                     ))}
+                </div>
+                <div className="flex justify-center gap-[8px] mt-8">
+                    {/* Left Arrow */}
+                    <button className="w-[42px] h-[42px] bg-white border border-gray-300 rounded-[6px] flex items-center justify-center hover:bg-gray-100">
+                        <span className="material-symbols-outlined text-gray-700">arrow_back</span>
+                    </button>
+
+                    {/* Right Arrow */}
+                    <button className="w-[42px] h-[42px] bg-white border border-gray-300 rounded-[6px] flex items-center justify-center hover:bg-gray-100">
+                        <span className="material-symbols-outlined text-gray-700">arrow_forward</span>
+                    </button>
                 </div>
             </section>
             <br />
