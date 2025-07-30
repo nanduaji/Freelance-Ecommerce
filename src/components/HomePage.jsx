@@ -51,7 +51,6 @@ const HomePage = () => {
             price: '4,299'
         }
     ];
-
     const newArrivals = [
         {
             image: './gshock.png',
@@ -74,7 +73,6 @@ const HomePage = () => {
             price: '3,499'
         }
     ];
-
     const highlights = [
         {
             image: './lotion.png',
@@ -97,8 +95,51 @@ const HomePage = () => {
             price: '899'
         }
     ];
-
-
+    const topDealsInElectronics = [
+        {
+            image: './controller.png',
+            heading: 'Wireless Game Controller - DualShock',
+            price: '2,499'
+        },
+        {
+            image: './trimmer.png',
+            heading: 'Philips Beard Trimmer - USB Charging',
+            price: '1,299'
+        },
+        {
+            image: './soundbar.png',
+            heading: 'Zebronics Bluetooth Soundbar - 100W',
+            price: '3,499'
+        },
+        {
+            image: './watch.png',
+            heading: 'Smart Fitness Watch - AMOLED',
+            price: '2,199'
+        }
+    ];
+    const bestSellers = [
+        {
+            image: './bodywash.png',
+            heading: 'Nivea Nourishing Body Wash - 500ml',
+            price: '299'
+        },
+        {
+            image: './shampoo.png',
+            heading: 'Dove Intense Repair Shampoo - 650ml',
+            price: '499'
+        },
+        {
+            image: './perfumeorange.png',
+            heading: 'Wild Stone Edge Perfume - 100ml',
+            price: '749'
+        },
+        {
+            image: './lipstick.png',
+            heading: 'Maybelline Matte Lipstick - Red Rush',
+            price: '349'
+        }
+    ];
+    
     return (
         <div className="font-dm text-gray-800">
             {/* Header */}
@@ -546,6 +587,216 @@ const HomePage = () => {
                     <img class="max-h-full max-w-full object-contain border rounded-[10px]" src="./offer2.png" alt="Centered Image" />
                 </div>
             </div> */}
+            {/* Fashion Collection */}
+            <section className="max-w-7xl mx-auto px-4 mt-10">
+                {/* Header */}
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-2">
+                    <h2 className="text-2xl font-semibold">Fashion Collection</h2>
+                    <button className="text-red-600 font-medium hover:underline">
+                        View Collection
+                    </button>
+                </div>
+
+                {/* Grid Layout */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                    {/* Small Images (span 3 columns on large screens) */}
+                    <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {[
+                            './fashion1.png',
+                            './fashion2.png',
+                            './fashion3.png',
+                            './fashion4.png',
+                            './fashion5.png',
+                            './fashion6.png',
+                        ].map((src, index) => (
+                            <div key={index} className="overflow-hidden">
+                                <img
+                                    src={src}
+                                    alt={`Fashion ${index + 1}`}
+                                    className="w-full h-48 sm:h-56 md:h-64 lg:h-80 object-cover object-top rounded-lg hover:scale-105 transition-transform duration-300"
+
+                                />
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Large Image (span 2 columns on large screens) */}
+                    <div className="lg:col-span-2">
+                        <img
+                            src="./fashion-large.png"
+                            alt="Main Fashion"
+                            className="w-full h-full object-cover rounded-lg hover:scale-105 transition-transform duration-300"
+                        />
+                    </div>
+                </div>
+            </section>
+            <br />
+            {/* Top Deals In Electronics */}
+            <section className="max-w-7xl mx-auto mt-6 px-4">
+                <h2 className="text-xl font-semibold mb-4" style={{ fontSize: '32px', fontWeight: 500 }}>Top Deals In Electronics</h2>
+
+                <div className="flex sm:grid sm:grid-cols-4 gap-[12px] overflow-x-auto sm:overflow-visible no-scrollbar">
+                    {topDealsInElectronics.map((product, i) => (
+                        <div
+                            key={i}
+                            className="w-[318px] min-w-[318px] sm:w-auto sm:min-w-0 bg-white rounded-lg shadow-md flex-shrink-0"
+                        >
+                            {/* Image and favorite icon */}
+                            <div className="relative w-full h-[356px] rounded-md overflow-hidden">
+                                <span
+                                    className="material-symbols-outlined absolute top-2 right-2 text-gray-700 text-sm cursor-pointer hover:bg-gray-200 z-10"
+                                    style={{
+                                        backgroundColor: 'white',
+                                        width: '48px',
+                                        height: '48px',
+                                        borderRadius: '436px',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        fontSize: '20px',
+                                    }}
+                                >
+                                    favorite
+                                </span>
+
+                                <img
+                                    src={product.image}
+                                    alt={product.heading}
+                                    className="w-full h-[356px] object-cover"
+                                />
+                            </div>
+
+                            {/* Product info and cart */}
+
+                            <div className="flex flex-col gap-[12px] h-[96px] mt-3 w-full p-2">
+                                <p className="text-[16px] text-[#303030]">{product.heading}</p>
+
+                                <div className="flex justify-between items-left w-full">
+                                    <p className="text-[32px] font-semibold text-[#303030]">Rs.{product.price}</p>
+
+                                    <span
+                                        className="material-symbols-outlined cursor-pointer hover:bg-gray-200"
+                                        style={{
+                                            backgroundColor: '#FF0000',
+                                            color: '#ffffff',
+                                            width: '42px',
+                                            height: '42px',
+                                            display: 'flex',
+                                            justifyContent: 'center',
+                                            alignItems: 'center',
+                                            borderRadius: '4px',
+                                            fontSize: '20px',
+                                        }}
+                                    >
+                                        shopping_cart
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
+            <br />
+            {/* 3 Cards */}
+            <section className="max-w-7xl mx-auto mt-6 px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                {[
+                    './iphone.png',
+                    './cosmic-watch.png',
+                    './gopro.png',
+                ].map((src, index) => (
+                    <div key={index} className="rounded-xl overflow-hidden shadow-md">
+                        <img
+                            src={src}
+                            alt={`Ad ${index + 1}`}
+                            className="w-full h-[542px] object-cover rounded-xl"
+                        />
+                    </div>
+                ))}
+            </section>
+            <br />
+            {/* Bestsellers */}
+            <section className="max-w-7xl mx-auto mt-6 px-4">
+                <h2 className="text-xl font-semibold mb-4" style={{ fontSize: '32px', fontWeight: 500 }}>Bestsellers in Beauty and Health</h2>
+                <div className="flex sm:grid sm:grid-cols-4 gap-[12px] overflow-x-auto sm:overflow-visible no-scrollbar">
+                    {bestSellers.map((product, i) => (
+                        <div
+                            key={i}
+                            className="w-[318px] min-w-[318px] sm:w-auto sm:min-w-0 bg-white rounded-lg shadow-md flex-shrink-0"
+                        >
+                            {/* Image and favorite icon */}
+                            <div className="relative w-full h-[356px] rounded-md overflow-hidden">
+                                <span
+                                    className="material-symbols-outlined absolute top-2 right-2 text-gray-700 text-sm cursor-pointer hover:bg-gray-200 z-10"
+                                    style={{
+                                        backgroundColor: 'white',
+                                        width: '48px',
+                                        height: '48px',
+                                        borderRadius: '436px',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        fontSize: '20px',
+                                    }}
+                                >
+                                    favorite
+                                </span>
+
+                                <img
+                                    src={product.image}
+                                    alt={product.heading}
+                                    className="w-full h-[356px] object-cover"
+                                />
+                            </div>
+
+                            {/* Product info and cart */}
+
+                            <div className="flex flex-col gap-[12px] h-[96px] mt-3 w-full p-2">
+                                <p className="text-[16px] text-[#303030]">{product.heading}</p>
+
+                                <div className="flex justify-between items-left w-full">
+                                    <p className="text-[32px] font-semibold text-[#303030]">Rs.{product.price}</p>
+
+                                    <span
+                                        className="material-symbols-outlined cursor-pointer hover:bg-gray-200"
+                                        style={{
+                                            backgroundColor: '#FF0000',
+                                            color: '#ffffff',
+                                            width: '42px',
+                                            height: '42px',
+                                            display: 'flex',
+                                            justifyContent: 'center',
+                                            alignItems: 'center',
+                                            borderRadius: '4px',
+                                            fontSize: '20px',
+                                        }}
+                                    >
+                                        shopping_cart
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
+            <br />
+            {/* two cards */}
+            <section className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-7xl mx-auto mt-6 px-4">
+                <div className="overflow-hidden rounded-lg">
+                    <img
+                        src="./mid-offer-1.png"
+                        alt="Korean Skincare Offer"
+                        className="w-full h-[376px] object-cover object-left hover:scale-105 transition-transform duration-300"
+                    />
+                </div>
+                <div className="overflow-hidden rounded-lg">
+                    <img
+                        src="./mid-offer-2.png"
+                        alt="Big Sale 25% Off"
+                        className="w-full h-[376px] object-cover object-center hover:scale-105 transition-transform duration-300"
+                    />
+                </div>
+            </section>
+            <br />
             {/* Highlights */}
             <section className="max-w-7xl mx-auto mt-6 px-4">
                 <h2 className="text-xl font-semibold mb-4" style={{ fontSize: '32px', fontWeight: 500 }}>Caremall Highlights</h2>
