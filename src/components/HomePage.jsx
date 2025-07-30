@@ -139,7 +139,7 @@ const HomePage = () => {
             price: '349'
         }
     ];
-    
+
     return (
         <div className="font-dm text-gray-800">
             {/* Header */}
@@ -334,7 +334,7 @@ const HomePage = () => {
             </div>
             <br />
             {/* 4 Cards */}
-            <div className="hidden sm:block ">
+            <div>
                 <div className="max-w-7xl mx-auto px-4 py-6">
                     <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4  gap-[16px]">
                         {["Deals of the Week", "Limited Time Deals", "Combo Offers", "Daily Deals"].map((title, idx) => {
@@ -451,11 +451,11 @@ const HomePage = () => {
             {/* Most Wanted Section */}
             <section className="max-w-7xl mx-auto mt-6 px-4">
                 <h2 className="text-xl font-semibold mb-4" style={{ fontSize: '32px', fontWeight: 500 }}>Most Wanted</h2>
-                <div className="flex sm:grid sm:grid-cols-4 gap-[12px] overflow-x-auto sm:overflow-visible no-scrollbar">
+                <div className="flex lg:grid lg:grid-cols-4 gap-[12px] overflow-x-auto lg:overflow-visible no-scrollbar">
                     {mostWanted.map((product, i) => (
                         <div
                             key={i}
-                            className="w-[318px] min-w-[318px] sm:w-auto sm:min-w-0 bg-white rounded-lg shadow-md flex-shrink-0"
+                            className="w-[318px] min-w-[318px] lg:w-auto lg:min-w-0 bg-white rounded-lg shadow-md flex-shrink-0"
                         >
                             {/* Image wrapper */}
                             <div className="relative w-full h-[356px] rounded-md overflow-hidden">
@@ -510,13 +510,13 @@ const HomePage = () => {
                         </div>
                     ))}
                 </div>
+
             </section>
             <br />
             {/* New Arrivals Section */}
             <section className="max-w-7xl mx-auto mt-6 px-4">
                 <h2 className="text-xl font-semibold mb-4" style={{ fontSize: '32px', fontWeight: 500 }}>New Arrivals</h2>
-
-                <div className="flex sm:grid sm:grid-cols-4 gap-[12px] overflow-x-auto sm:overflow-visible no-scrollbar">
+                <div className="flex lg:grid lg:grid-cols-4 gap-[12px] overflow-x-auto lg:overflow-visible no-scrollbar">
                     {newArrivals.map((product, i) => (
                         <div
                             key={i}
@@ -633,13 +633,15 @@ const HomePage = () => {
             <br />
             {/* Top Deals In Electronics */}
             <section className="max-w-7xl mx-auto mt-6 px-4">
-                <h2 className="text-xl font-semibold mb-4" style={{ fontSize: '32px', fontWeight: 500 }}>Top Deals In Electronics</h2>
+                <h2 className="text-xl font-semibold mb-4" style={{ fontSize: '32px', fontWeight: 500 }}>
+                    Top Deals In Electronics
+                </h2>
 
-                <div className="flex sm:grid sm:grid-cols-4 gap-[12px] overflow-x-auto sm:overflow-visible no-scrollbar">
+                <div className="flex lg:grid lg:grid-cols-4 gap-[12px] overflow-x-auto lg:overflow-visible no-scrollbar">
                     {topDealsInElectronics.map((product, i) => (
                         <div
                             key={i}
-                            className="w-[318px] min-w-[318px] sm:w-auto sm:min-w-0 bg-white rounded-lg shadow-md flex-shrink-0"
+                            className="w-[318px] min-w-[318px] lg:w-auto lg:min-w-0 bg-white rounded-lg shadow-md flex-shrink-0"
                         >
                             {/* Image and favorite icon */}
                             <div className="relative w-full h-[356px] rounded-md overflow-hidden">
@@ -667,7 +669,6 @@ const HomePage = () => {
                             </div>
 
                             {/* Product info and cart */}
-
                             <div className="flex flex-col gap-[12px] h-[96px] mt-3 w-full p-2">
                                 <p className="text-[16px] text-[#303030]">{product.heading}</p>
 
@@ -717,14 +718,14 @@ const HomePage = () => {
             {/* Bestsellers */}
             <section className="max-w-7xl mx-auto mt-6 px-4">
                 <h2 className="text-xl font-semibold mb-4" style={{ fontSize: '32px', fontWeight: 500 }}>Bestsellers in Beauty and Health</h2>
-                <div className="flex sm:grid sm:grid-cols-4 gap-[12px] overflow-x-auto sm:overflow-visible no-scrollbar">
+                <div className="flex lg:grid lg:grid-cols-4 gap-[12px] overflow-x-auto lg:overflow-visible no-scrollbar">
                     {bestSellers.map((product, i) => (
                         <div
                             key={i}
-                            className="w-[318px] min-w-[318px] sm:w-auto sm:min-w-0 bg-white rounded-lg shadow-md flex-shrink-0"
+                            className="w-[318px] min-w-[318px] lg:w-auto lg:min-w-0 bg-white rounded-lg shadow-md flex-shrink-0"
                         >
                             {/* Image and favorite icon */}
-                            <div className="relative w-full h-[356px] rounded-md overflow-hidden">
+                            <div className="relative md:w-full sm:w-[318px] h-[356px] rounded-md overflow-hidden">
                                 <span
                                     className="material-symbols-outlined absolute top-2 right-2 text-gray-700 text-sm cursor-pointer hover:bg-gray-200 z-10"
                                     style={{
@@ -800,12 +801,12 @@ const HomePage = () => {
             {/* Highlights */}
             <section className="max-w-7xl mx-auto mt-6 px-4">
                 <h2 className="text-xl font-semibold mb-4" style={{ fontSize: '32px', fontWeight: 500 }}>Caremall Highlights</h2>
-
-                <div className="flex sm:grid sm:grid-cols-4 gap-[12px] overflow-x-auto sm:overflow-visible no-scrollbar">
+                <div className="flex lg:grid lg:grid-cols-4 gap-[12px] overflow-x-auto lg:overflow-visible no-scrollbar">
                     {highlights.map((product, i) => (
                         <div
                             key={i}
-                            className="w-[318px] min-w-[318px] sm:w-auto sm:min-w-0 bg-white rounded-lg shadow-md flex-shrink-0"
+                            className="w-[318px] min-w-[318px] lg:w-auto lg:min-w-0 bg-white rounded-lg shadow-md flex-shrink-0"
+                            
                         >
                             {/* Image and favorite icon */}
                             <div className="relative w-full h-[356px] rounded-md overflow-hidden">
