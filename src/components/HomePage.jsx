@@ -772,71 +772,127 @@ const HomePage = () => {
                 </div>
             </section>
             <br />
-            {/* HomePage   Download */}
-            <section className="max-w-7xl w-[450px] sm:w-full  mx-auto mt-10 px-4 sm:px-6 md:px-10 bg-gradient-to-r from-red-600 via-red-500 to-red-600 text-white py-12 rounded-2xl shadow-xl overflow-hidden">
+            {/* HomePage - Download Section */}
+            <section className="w-[420px] sm:w-full max-w-7xl mx-auto mt-10 px-4 sm:px-6 md:px-10 bg-gradient-to-r from-red-600 via-red-500 to-red-600 text-white py-12 rounded-2xl shadow-xl overflow-hidden">
                 <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-10">
-
-                    {/* Left: Text Content */}
+                    {/* Left Text Content */}
                     <div className="md:w-1/2 text-center md:text-left">
-                        <h3 className="text-3xl sm:text-4xl font-extrabold mb-3 leading-tight">Unlock Exclusive Deals!</h3>
-                        <p className="text-lg sm:text-xl mb-6 font-medium">Download the Caremall App and start saving today.</p>
-                        <div className="flex justify-center md:justify-start gap-4">
+                        <h3 className="text-[26px] sm:text-[32px] font-extrabold mb-2 leading-tight">
+                            Unlock Exclusive Deals!
+                        </h3>
+                        <p className="text-base sm:text-lg mb-4 font-normal">
+                            Download our app today for personalized recommendations, faster checkout, and app-only discounts delivered straight to your phone. Shop smarter, anywhere, anytime!
+                        </p>
+                        <div className="flex justify-center md:justify-start gap-4 mt-4">
                             <img
                                 src="./googleplay.png"
                                 alt="Google Play"
-                                className="w-32 sm:w-36 hover:scale-105 transition-transform duration-300 rounded-lg shadow-lg"
+                                className="w-[130px] sm:w-[140px] rounded-lg hover:scale-105 transition-transform"
                             />
                             <img
                                 src="./applestore.png"
                                 alt="Apple App Store"
-                                className="w-32 sm:w-36 hover:scale-105 transition-transform duration-300 rounded-lg shadow-lg"
+                                className="w-[130px] sm:w-[140px] rounded-lg hover:scale-105 transition-transform"
                             />
                         </div>
                     </div>
 
-                    {/* Right: App Image */}
+                    {/* Right Image */}
                     <div className="md:w-1/2 flex justify-center">
                         <img
                             src="./coverphoto.png"
                             alt="App Promo"
-                            className="w-52 sm:w-64 md:w-72 transform -rotate-6 rounded-xl shadow-2xl object-contain"
+                            className="w-[250px] sm:w-[270px] md:w-[300px] transform scale-[1.15] -rotate-6 rounded-xl object-cover shadow-2xl"
                         />
                     </div>
                 </div>
             </section>
-            <br />
-            {/* Footer */}
-            <footer className="bg-black text-white py-8 px-4 mt-8">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-4 gap-6 text-sm">
-                    <div>
-                        <h4 className="font-semibold mb-2">Newsletter</h4>
-                        <input
-                            type="email"
-                            placeholder="Enter your email"
-                            className="w-full rounded text-black"
-                        />
-                        <button className="bg-red-600 mt-2 px-4 py-2 rounded text-white">Subscribe</button>
+            <footer className="bg-[#1a1a1a] text-white py-12 px-4 mt-10">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-4 gap-8 text-sm">
+                    {/* Newsletter Section */}
+                    <div className="sm:col-span-1">
+                        {/* Logo */}
+                        <div className="mb-2">
+                            <img
+                                src="./caremall.png"
+                                alt="Caremall Logo"
+                                className="w-[147px] h-[40px] sm:w-20 md:w-28 lg:w-36 xl:w-44 m-0 p-0 block"
+                                style={{
+                                    cursor: 'pointer',
+                                    marginLeft: window.innerWidth < 640 ? '-10px' : '-15px'
+                                }}
+                                onClick={() => navigateTo('/')}
+                            />
+
+                        </div>
+
+                        {/* Social Media Icons */}
+                        <div className="flex gap-3 mb-4 ml-[-10px] sm:ml-0" style={{
+                            cursor: 'pointer',
+                            marginLeft: window.innerWidth < 640 ? '-10px' : '0px'
+                        }}>
+                            <a href="#" aria-label="Facebook">
+                                <i className="fab fa-facebook-f text-white text-lg hover:text-blue-400"></i>
+                            </a>
+                            <a href="#" aria-label="Instagram">
+                                <i className="fab fa-instagram text-white text-lg hover:text-pink-400"></i>
+                            </a>
+                            <a href="#" aria-label="Twitter">
+                                <i className="fab fa-twitter text-white text-lg hover:text-blue-300"></i>
+                            </a>
+                            <a href="#" aria-label="LinkedIn">
+                                <i className="fab fa-linkedin-in text-white text-lg hover:text-blue-500"></i>
+                            </a>
+                        </div>
+
+                        {/* Newsletter */}
+                        <h4 className="text-base font-bold mb-3">Newsletter</h4>
+                        <p className="text-sm mb-3 text-white/80 leading-snug">
+                            Subscribe to the newsletter and receive information about promotions and new arrivals
+                        </p>
+
+                        <div className="flex items-center bg-white rounded-md overflow-hidden w-[266px] h-[42px] border border-gray-300">
+                            <input
+                                type="email"
+                                placeholder="Enter your email address here"
+                                className="px-3 py-2 w-full text-sm text-black outline-none"
+                            />
+                            <button className="bg-red-600 text-white px-4 text-sm font-medium h-full">
+                                Subscribe
+                            </button>
+                        </div>
                     </div>
+
+                    {/* Footer Links */}
                     <div>
                         <h4 className="font-semibold mb-2">Customer Service</h4>
                         <p>FAQ</p>
-                        <p>Returns</p>
-                        <p>Shipping</p>
+                        <p>Orders</p>
+                        <p>Deliveries</p>
+                        <p>Payments</p>
+                        <p>Returns and refunds</p>
+                        <p>Vendor Connect</p>
+                        <p>Contact Us</p>
                     </div>
                     <div>
-                        <h4 className="font-semibold mb-2">Store Info</h4>
-                        <p>Contact Us</p>
+                        <h4 className="font-semibold mb-2">About Us</h4>
+                        <p>Company</p>
                         <p>Careers</p>
-                        <p>Privacy Policy</p>
+                        <p>Cities we serve</p>
+                        <p>Become Care Mall Rider</p>
                     </div>
                     <div>
                         <h4 className="font-semibold mb-2">Care Mall</h4>
-                        <p>About Us</p>
+                        <p>News</p>
+                        <p>Instant</p>
+                        <p>Daily</p>
                         <p>Blog</p>
-                        <p>Terms</p>
                     </div>
                 </div>
-                <p className="text-center text-xs mt-4">© 2025 Caremall. All rights reserved.</p>
+
+                <p className="text-center text-xs mt-8 text-white/60">
+                    Copyright © 2025 Care mall
+                </p>
             </footer>
         </div>
     );
