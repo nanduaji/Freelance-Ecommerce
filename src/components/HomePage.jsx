@@ -100,7 +100,7 @@ const HomePage = () => {
 
 
     return (
-        <div className="font-dm text-gray-800">
+        <div className="font-dm text-gray-800 p-5">
             {/* Header */}
             <header className="bg-white shadow-sm">
                 <div className="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
@@ -343,7 +343,7 @@ const HomePage = () => {
             </div>
             <br />
             {/* Promo Banner */}
-            <section className="text-white max-w-7xl mx-auto mt-4 bg-gradient-to-r from-[#7e1414] to-black xl:ml-[135px] xl:mr-[135px] rounded-[12px] overflow-hidden max-h-[376px]">
+            <section className="text-white w-[420px] max-w-7xl mx-auto mt-4 bg-gradient-to-r from-[#7e1414] to-black xl:ml-[135px] xl:mr-[135px] rounded-[12px] overflow-hidden max-h-[376px]">
                 <div className="grid grid-cols-1 md:grid-cols-2 h-full">
 
                     {/* Left Side - Image Full Height */}
