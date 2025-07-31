@@ -1,10 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./HomePage.module.css";
 
 const HomePage = () => {
     const navigateTo = useNavigate();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [mostWanted, setMostWanted] = useState([]);
+    useEffect(() => {
+        const fetchMostWanted = async () => {
+            try {
+                const response = await fetch(
+                  "https://mocki.io/v1/47c83e8e-28f2-4662-9970-48edf8e35c2b"
+                );
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                setMostWanted(data.products);
+            } catch (error) {
+                console.error('Error fetching most wanted products:', error);
+            }
+        }
+        fetchMostWanted();
+    }, []); 
     const icons = [{
         icon: "language",
         path: '/'
@@ -29,28 +47,28 @@ const HomePage = () => {
         { name: "Women's Apparels", image: "/categories/women.png" },
         { name: "Baby Products", image: "/categories/babyproducts.png" },
     ];
-    const mostWanted = [
-        {
-            image: './hoodie.png',
-            heading: 'Classic Cotton Hoodie',
-            price: '999'
-        },
-        {
-            image: './headphones.png',
-            heading: 'Noise Cancelling Earbuds',
-            price: '3,999'
-        },
-        {
-            image: './adidas.png',
-            heading: 'Adidas Sports Sneakers',
-            price: '2,499'
-        },
-        {
-            image: './designer.png',
-            heading: 'Designer Handbag',
-            price: '4,299'
-        }
-    ];
+    // const mostWanted = [
+    //     {
+    //         image: './hoodie.png',
+    //         heading: 'Classic Cotton Hoodie',
+    //         price: '999'
+    //     },
+    //     {
+    //         image: './headphones.png',
+    //         heading: 'Noise Cancelling Earbuds',
+    //         price: '3,999'
+    //     },
+    //     {
+    //         image: './adidas.png',
+    //         heading: 'Adidas Sports Sneakers',
+    //         price: '2,499'
+    //     },
+    //     {
+    //         image: './designer.png',
+    //         heading: 'Designer Handbag',
+    //         price: '4,299'
+    //     }
+    // ];
     const newArrivals = [
         {
             image: './gshock.png',
@@ -662,9 +680,9 @@ const HomePage = () => {
           </div>
 
           {/* Grid Layout */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-5 gap-4">
             {/* Small Images (span 3 columns on large screens) */}
-            <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="lg:col-span-3 grid grid-cols-1 lg:grid-cols-3 gap-4">
               {[
                 "./fashion1.png",
                 "./fashion2.png",
@@ -673,12 +691,34 @@ const HomePage = () => {
                 "./fashion5.png",
                 "./fashion6.png",
               ].map((src, index) => (
-                <div key={index} className="overflow-hidden">
-                  <img
-                    src={src}
-                    alt={`Fashion ${index + 1}`}
-                    className="w-full h-48 sm:h-56 md:h-64 lg:h-80 object-cover object-top rounded-lg hover:scale-105 transition-transform duration-300"
-                  />
+                <div
+                  key={index}
+                  className="relative rounded-lg overflow-hidden group"
+                >
+                  {/* Wrapper to allow hover height expansion */}
+                  <div
+                    className="
+              h-48 sm:h-56 md:h-64 lg:h-80
+              group-hover:h-auto
+              sm:group-hover:max-h-[800px]
+              md:group-hover:max-h-[800px]
+              lg:group-hover:h-80
+              transition-all duration-500 ease-in-out
+              relative
+            "
+                  >
+                    <img
+                      src={src}
+                      alt={`Fashion ${index + 1}`}
+                      className="
+                w-full
+                h-full
+                object-cover object-top
+                transition-transform duration-500 ease-in-out
+                group-hover:scale-110 group-hover:origin-top
+              "
+                    />
+                  </div>
                 </div>
               ))}
             </div>
@@ -693,6 +733,7 @@ const HomePage = () => {
             </div>
           </div>
         </section>
+
         <br />
         {/* Top Deals In Electronics */}
         <section className="max-w-7xl mx-auto mt-6 px-4">
