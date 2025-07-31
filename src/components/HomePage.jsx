@@ -358,12 +358,12 @@ const HomePage = () => {
                   className="flex-shrink-0 flex flex-col items-center text-center w-[100px]"
                 >
                   <img
-                    src={brand.image}
-                    alt={brand.name}
-                    className={`${brand.size} object-contain mb-2`}
+                    src={brand.imageUrl}
+                    alt={brand.brandName}
+                    className={`h-10 w-auto object-contain mb-2`}
                   />
                   <span className="text-sm text-gray-600 font-medium">
-                    {brand.name}
+                    {brand.brandName}
                   </span>
                 </div>
               ))}
