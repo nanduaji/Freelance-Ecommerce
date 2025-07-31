@@ -734,7 +734,6 @@ const HomePage = () => {
             </div>
           </div>
         </section>
-
         <br />
         {/* Top Deals In Electronics */}
         <section className="max-w-7xl mx-auto mt-6 px-4">
@@ -1146,7 +1145,6 @@ const HomePage = () => {
             </div>
           </div>
         </section>
-
         <br />
         {/* HomePage - Download Section */}
         <section className="w-full max-w-7xl mx-auto mt-6 px-4 bg-gradient-to-r from-red-600 via-red-500 to-red-600 text-white py-12 rounded-2xl shadow-xl overflow-hidden">
@@ -1185,6 +1183,7 @@ const HomePage = () => {
             </div>
           </div>
         </section>
+        {/* Footer */}
         <footer className="bg-[#1a1a1a] text-white py-12 px-4 mt-10">
           <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-4 gap-8 text-sm">
             {/* Newsletter Section */}
