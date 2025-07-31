@@ -90,35 +90,50 @@ const ProductDetailPage = () => {
         );
     };
     const showTab = (tab) => {
-        const descriptionTab = document.getElementById('descriptionTab');
-        const warrantyTab = document.getElementById('warrantyTab');
-        const descriptionContent = document.getElementById('descriptionContent');
-        const warrantyContent = document.getElementById('warrantyContent');
+      const descriptionTab = document.getElementById("descriptionTab");
+      const warrantyTab = document.getElementById("warrantyTab");
+      const descriptionContent = document.getElementById("descriptionContent");
+      const warrantyContent = document.getElementById("warrantyContent");
 
-        if (tab === 'description') {
-            descriptionContent.classList.remove('hidden');
-            warrantyContent.classList.add('hidden');
+      const activeTabClasses = [
+        "text-orange-600",
+        "border-orange-600",
+        "dark:text-orange-500",
+        "dark:border-orange-500",
+      ];
+      const inactiveTabClasses = [
+        "text-gray-600",
+        "border-transparent",
+        "hover:text-gray-600",
+        "hover:border-gray-300",
+        "dark:hover:text-gray-300",
+      ];
 
-            // Highlight description tab
-            descriptionTab.classList.add('text-orange-600', 'border-orange-600');
-            descriptionTab.classList.remove('text-gray-500', 'border-transparent');
+      if (tab === "description") {
+        descriptionContent.classList.remove("hidden");
+        warrantyContent.classList.add("hidden");
 
-            // Reset warranty tab
-            warrantyTab.classList.remove('text-orange-600', 'border-orange-600');
-            warrantyTab.classList.add('text-gray-500', 'border-transparent');
-        } else {
-            warrantyContent.classList.remove('hidden');
-            descriptionContent.classList.add('hidden');
+        // Description tab active
+        descriptionTab.classList.add(...activeTabClasses);
+        descriptionTab.classList.remove(...inactiveTabClasses);
 
-            // Highlight warranty tab
-            warrantyTab.classList.add('text-orange-600', 'border-orange-600');
-            warrantyTab.classList.remove('text-gray-500', 'border-transparent');
+        // Warranty tab inactive
+        warrantyTab.classList.remove(...activeTabClasses);
+        warrantyTab.classList.add(...inactiveTabClasses);
+      } else {
+        warrantyContent.classList.remove("hidden");
+        descriptionContent.classList.add("hidden");
 
-            // Reset description tab
-            descriptionTab.classList.remove('text-orange-600', 'border-orange-600');
-            descriptionTab.classList.add('text-gray-500', 'border-transparent');
-        }
+        // Warranty tab active
+        warrantyTab.classList.add(...activeTabClasses);
+        warrantyTab.classList.remove(...inactiveTabClasses);
+
+        // Description tab inactive
+        descriptionTab.classList.remove(...activeTabClasses);
+        descriptionTab.classList.add(...inactiveTabClasses);
+      }
     };
+
     const ratingData = [
         { name: '5', value: 93 },
         { name: '4', value: 5 },
