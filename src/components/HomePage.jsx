@@ -1174,41 +1174,43 @@ const HomePage = () => {
               </div>
             </div>
 
-            {/* Small Vertical Blog Cards */}
-            <div className="col-span-6 md:col-span-2 flex flex-col gap-6">
+            {/* Vertical Side Cards */}
+            <div className="col-span-6 md:col-span-2 flex flex-col gap-6 h-[400px]">
               {[
                 {
-                  title: "Capsule Wardrobe Essentials",
+                  title: "Capsule Wardrobe Essentials: Master Timeless Style",
+                  description:
+                    "Simplify your closet and elevate your everyday look with our guide to building a versatile capsule wardrobe.",
                   category: "Fashion & Style",
                   image: "./blog2.png",
                 },
                 {
-                  title: "Must-Have Gadgets",
+                  title: "Must-Have Gadgets for the Modern Professional",
+                  description:
+                    "Boost your efficiency and streamline your workflow with our curated list of essential tech gadgets.",
                   category: "Tech & Gadgets",
                   image: "./blog3.png",
-                },
-                {
-                  title: "5 Tips for a Healthy Life",
-                  category: "Health & Wellness",
-                  image: "./blog2.png",
                 },
               ].map((blog, idx) => (
                 <div
                   key={idx}
-                  className="flex bg-[#FAF6F2] rounded-xl overflow-hidden shadow-sm"
+                  className="flex bg-[#FAF6F2] rounded-xl overflow-hidden shadow-sm h-[calc(50%-0.75rem)]"
                 >
                   <img
                     src={blog.image}
                     alt={blog.title}
-                    className="w-24 h-24 object-cover rounded-l-xl"
+                    className="w-[245px] h-full object-cover"
                   />
                   <div className="p-4 flex flex-col justify-center">
-                    <span className="text-xs text-gray-600 uppercase tracking-widest">
+                    <span className="text-xs uppercase tracking-widest text-red-600">
                       {blog.category}
                     </span>
-                    <h4 className="text-base font-semibold mt-1 leading-tight">
+                    <h4 className="text-base font-semibold mt-1 leading-snug text-gray-900">
                       {blog.title}
                     </h4>
+                    <p className="text-sm text-gray-600 mt-1 line-clamp-2">
+                      {blog.description}
+                    </p>
                     <button className="text-sm text-[#7D4533] font-semibold underline mt-2 self-start">
                       Read more
                     </button>
@@ -1219,6 +1221,7 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+
       <br />
       {/* HomePage - Download Section */}
       <section className="w-full max-w-7xl mx-auto mt-6 px-4 bg-gradient-to-r from-red-600 via-red-500 to-red-600 text-white py-12 rounded-2xl shadow-xl overflow-hidden">
