@@ -1,33 +1,29 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./HomePage.module.css";
-import axios from "axios";
 
 const HomePage = () => {
     const navigateTo = useNavigate();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [mostWanted, setMostWanted] = useState([]);
-    const [brands, setBrands] = useState([]);
+    
     useEffect(() => {
-      const fetchData = async () => {
-        try {
-          // Fetch Most Wanted Products
-          const mostWantedRes = await axios.get(
-            "https://mocki.io/v1/47c83e8e-28f2-4662-9970-48edf8e35c2b"
-          );
-          setMostWanted(mostWantedRes.data.products);
-
-          // Fetch Brands
-          const brandsRes = await axios.get("https://api.caremall.in/brands");
-          setBrands(brandsRes.data);
-          console.log("Brands data:", brandsRes.data);
-        } catch (error) {
-          console.error("Error fetching data:", error);
+        const fetchMostWanted = async () => {
+            try {
+                const response = await fetch(
+                  "https://mocki.io/v1/47c83e8e-28f2-4662-9970-48edf8e35c2b"
+                );
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                setMostWanted(data.products);
+            } catch (error) {
+                console.error('Error fetching most wanted products:', error);
+            }
         }
-      };
-
-      fetchData();
-    }, []);  
+        fetchMostWanted();
+    }, []); 
     const icons = [{
         icon: "language",
         path: '/'
@@ -36,15 +32,15 @@ const HomePage = () => {
     { icon: "shopping_cart", path: '/cart' },
     { icon: "person", path: '/' }
     ];
-    // const brands = [
-    //     { name: "Adidas", image: "/brands/adidas.png", size: "h-10 w-auto" },
-    //     { name: "Louis Vuitton", image: "/brands/louis-vuitton.png", size: "h-10 w-auto" },
-    //     { name: "Whirlpool", image: "/brands/whirlpool.png", size: "h-10 w-auto" },
-    //     { name: "Carrier", image: "/brands/carrier.png", size: "h-10 w-auto" },
-    //     { name: "Huawei", image: "/brands/huawei.png", size: "h-10 w-auto" },
-    //     { name: "HP", image: "/brands/hp.png", size: "h-10 w-auto" },
-    //     { name: "Samsung", image: "/brands/samsung.png", size: "h-10 w-auto" },
-    // ];
+    const brands = [
+        { name: "Adidas", image: "/brands/adidas.png", size: "h-10 w-auto" },
+        { name: "Louis Vuitton", image: "/brands/louis-vuitton.png", size: "h-10 w-auto" },
+        { name: "Whirlpool", image: "/brands/whirlpool.png", size: "h-10 w-auto" },
+        { name: "Carrier", image: "/brands/carrier.png", size: "h-10 w-auto" },
+        { name: "Huawei", image: "/brands/huawei.png", size: "h-10 w-auto" },
+        { name: "HP", image: "/brands/hp.png", size: "h-10 w-auto" },
+        { name: "Samsung", image: "/brands/samsung.png", size: "h-10 w-auto" },
+    ];
     const categories = [
         { name: "Electronics", image: "/categories/electronics.png" },
         { name: "Cosmetics", image: "/categories/cosmetics.png" },
@@ -358,12 +354,12 @@ const HomePage = () => {
                   className="flex-shrink-0 flex flex-col items-center text-center w-[100px]"
                 >
                   <img
-                    src={brand.imageUrl}
-                    alt={brand.brandName}
-                    className={`h-10 w-auto object-contain mb-2`}
+                    src={brand.image}
+                    alt={brand.name}
+                    className={`${brand.size} object-contain mb-2`}
                   />
                   <span className="text-sm text-gray-600 font-medium">
-                    {brand.brandName}
+                    {brand.name}
                   </span>
                 </div>
               ))}
