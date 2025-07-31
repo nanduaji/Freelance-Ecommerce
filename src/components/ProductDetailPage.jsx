@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { RadialBarChart, RadialBar, Legend, ResponsiveContainer } from 'recharts';
 import MagnifierImage from './Magnifier';
 
 const ProductDetailPage = () => {
   const navigateTo = useNavigate();
+  const [selectedImage, setSelectedImage] = useState("./headset.png");
   const icons = [
     {
       icon: "language",
@@ -15,12 +16,18 @@ const ProductDetailPage = () => {
     { icon: "person", path: "/" },
   ];
   const thumbnailImages = [
-    "boat2.webp",
-    "boat3.webp",
-    "boat4.webp",
-    "boat5.webp",
-    "boat6.webp",
+    "headset.png",
+    "black.png",
+    "man1.png",
+    "man2.png",
+    "sideview.png"
   ];
+  const selectColor = [
+    "headset.png",
+    "black.png",
+    "white.png",
+  ];
+
   const customerReviews = [
     {
       rating: 5,
@@ -195,7 +202,10 @@ const ProductDetailPage = () => {
           price: '4,299'
       }
   ];
-
+const handleThumbnailClick = (item) => {
+    console.log("Thumbnail clicked:", item);
+    setSelectedImage(item);
+}
   return (
     <div className="bg-white-100 font-dm">
       {/* Header */}
@@ -371,20 +381,21 @@ const ProductDetailPage = () => {
         <div className="flex gap-4">
           {/* Main Product Image */}
           <MagnifierImage
-            src="./headset.png"
+            src={selectedImage}
             width={585}
-            height={500}
+            height={530}
             zoom={2}
           />
 
-          {/* Thumbnails as Column */}
-          <div className="flex flex-col gap-3">
-            {thumbnailImages.map((item, index) => (
+          {/* Thumbnails Column */}
+          <div className="flex flex-col gap-4 w-[109px]">
+            {thumbnailImages.slice(0, 5).map((item, index) => (
               <img
                 key={index}
                 src={item}
                 alt={`Thumbnail ${index + 1}`}
-                className="w-20 h-20 object-contain p-1 border-2 border-gray-300 rounded-md hover:border-red-500 hover:shadow-md transition duration-200"
+                className="w-[109px] h-[93px] object-cover rounded-[12px] cursor-pointer border border-gray-300 hover:border-red-500 transition duration-200"
+                onClick={() => handleThumbnailClick(item)}
               />
             ))}
           </div>
@@ -461,15 +472,17 @@ const ProductDetailPage = () => {
               Select Color
             </p>
             <div className="flex flex-row gap-3">
-              {thumbnailImages.slice(0, 3).map((item, index) => (
+              {selectColor.slice(0, 3).map((item, index) => (
                 <img
                   key={index}
                   src={item}
                   alt={`Thumbnail ${index + 1}`}
-                  className="w-20 h-20 object-contain p-1 border-2 border-gray-300 rounded-md hover:border-red-500 hover:shadow-md transition duration-200"
+                  className="w-[85px] h-[93px] object-cover rounded-[12px] cursor-pointer border border-gray-300 hover:border-red-500 transition duration-200"
+                  onClick={() => handleThumbnailClick(item)}
                 />
               ))}
             </div>
+
             <br />
 
             <div className="flex justify-start gap-4 mb-6 items-center">
