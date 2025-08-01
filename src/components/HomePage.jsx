@@ -1,11 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 import "./HomePage.module.css";
 
 const HomePage = () => {
     const navigateTo = useNavigate();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [mostWanted, setMostWanted] = useState([]);
+    const [brands, setBrands] = useState([]);
+    const [categories, setCategories] = useState([]);
+    const [newArrivals, setNewArrivals] = useState([]);
+    const [bestSellers, setBestSellers] = useState([]);
     const [categoryDropdownOpen, setCategoryDropdownOpen] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
@@ -21,22 +26,65 @@ const HomePage = () => {
     }, []);
 
     useEffect(() => {
+        const fetchBrands = async () => {
+            try {
+                const response = await axios.get("https://api.caremall.in/brands");
+                setBrands(response.data);
+            } catch (error) {
+                console.error("Error fetching brands:", error);
+            }
+        };
+        fetchBrands();
+    }, []);
+
+    useEffect(() => {
+        const fetchCategories = async () => {
+            try {
+                const response = await axios.get("https://api.caremall.in/categories");
+                setCategories(response.data);
+            } catch (error) {
+                console.error("Error fetching categories:", error);
+            }
+        };
+        fetchCategories();
+    }, []);
+
+    useEffect(() => {
         const fetchMostWanted = async () => {
             try {
-                const response = await fetch(
-                    "https://mocki.io/v1/47c83e8e-28f2-4662-9970-48edf8e35c2b"
-                );
-                if (!response.ok) {
-                    throw new Error("Network response was not ok");
-                }
-                const data = await response.json();
-                setMostWanted(data.products);
+                const response = await axios.get("https://api.caremall.in/products/most-wanted");
+                setMostWanted(response.data);
             } catch (error) {
                 console.error("Error fetching most wanted products:", error);
             }
         };
         fetchMostWanted();
     }, []);
+
+    useEffect(() => {
+        const fetchNewArrivals = async () => {
+            try {
+                const response = await axios.get("https://api.caremall.in/products/new-arrivals");
+                setNewArrivals(response.data);
+            } catch (error) {
+                console.error("Error fetching new arrivals:", error);
+            }
+        };
+        fetchNewArrivals();
+    }, []);
+    useEffect(() => {
+        const fetchBestSellers = async () => {
+            try {
+                const response = await axios.get("https://api.caremall.in/products/best-sellers");
+                console.log("Best Sellers:", response.data);
+                setBestSellers(response.data);
+            } catch (error) {
+                console.error("Error fetching new arrivals:", error);
+            }
+        };
+        fetchBestSellers();
+    }, []);
+
     const icons = [
         {
             icon: "language",
@@ -46,26 +94,26 @@ const HomePage = () => {
         { icon: "shopping_cart", path: "/cart" },
         { icon: "person", path: "/" },
     ];
-    const brands = [
-        { name: "Adidas", image: "/brands/adidas.png", size: "h-10 w-auto" },
-        {
-            name: "Louis Vuitton",
-            image: "/brands/louis-vuitton.png",
-            size: "h-10 w-auto",
-        },
-        { name: "Whirlpool", image: "/brands/whirlpool.png", size: "h-10 w-auto" },
-        { name: "Carrier", image: "/brands/carrier.png", size: "h-10 w-auto" },
-        { name: "Huawei", image: "/brands/huawei.png", size: "h-10 w-auto" },
-        { name: "HP", image: "/brands/hp.png", size: "h-10 w-auto" },
-        { name: "Samsung", image: "/brands/samsung.png", size: "h-10 w-auto" },
-    ];
-    const categories = [
-        { name: "Electronics", image: "/categories/electronics.png" },
-        { name: "Cosmetics", image: "/categories/cosmetics.png" },
-        { name: "Home Appliances", image: "/categories/homeappliance.png" },
-        { name: "Women's Apparels", image: "/categories/women.png" },
-        { name: "Baby Products", image: "/categories/babyproducts.png" },
-    ];
+    // const brands = [
+    //     { name: "Adidas", image: "/brands/adidas.png", size: "h-10 w-auto" },
+    //     {
+    //         name: "Louis Vuitton",
+    //         image: "/brands/louis-vuitton.png",
+    //         size: "h-10 w-auto",
+    //     },
+    //     { name: "Whirlpool", image: "/brands/whirlpool.png", size: "h-10 w-auto" },
+    //     { name: "Carrier", image: "/brands/carrier.png", size: "h-10 w-auto" },
+    //     { name: "Huawei", image: "/brands/huawei.png", size: "h-10 w-auto" },
+    //     { name: "HP", image: "/brands/hp.png", size: "h-10 w-auto" },
+    //     { name: "Samsung", image: "/brands/samsung.png", size: "h-10 w-auto" },
+    // ];
+    // const categories = [
+    //     { name: "Electronics", image: "/categories/electronics.png" },
+    //     { name: "Cosmetics", image: "/categories/cosmetics.png" },
+    //     { name: "Home Appliances", image: "/categories/homeappliance.png" },
+    //     { name: "Women's Apparels", image: "/categories/women.png" },
+    //     { name: "Baby Products", image: "/categories/babyproducts.png" },
+    // ];
     // const mostWanted = [
     // {
     // image: './hoodie.png',
@@ -88,28 +136,28 @@ const HomePage = () => {
     // price: '4,299'
     // }
     // ];
-    const newArrivals = [
-        {
-            image: "./gshock.png",
-            heading: "G-Shock Digital Watch",
-            price: "5,999",
-        },
-        {
-            image: "./hpomen.png",
-            heading: "HP Omen Gaming Laptop",
-            price: "89,999",
-        },
-        {
-            image: "./perfume.png",
-            heading: "Luxury Perfume Spray",
-            price: "1,299",
-        },
-        {
-            image: "./nike.png",
-            heading: "Nike Running Shoes",
-            price: "3,499",
-        },
-    ];
+    // const newArrivals = [
+    //     {
+    //         image: "./gshock.png",
+    //         heading: "G-Shock Digital Watch",
+    //         price: "5,999",
+    //     },
+    //     {
+    //         image: "./hpomen.png",
+    //         heading: "HP Omen Gaming Laptop",
+    //         price: "89,999",
+    //     },
+    //     {
+    //         image: "./perfume.png",
+    //         heading: "Luxury Perfume Spray",
+    //         price: "1,299",
+    //     },
+    //     {
+    //         image: "./nike.png",
+    //         heading: "Nike Running Shoes",
+    //         price: "3,499",
+    //     },
+    // ];
     const highlights = [
         {
             video: "./iphone.mp4",
@@ -122,7 +170,7 @@ const HomePage = () => {
             price: "1,499",
         },
         {
-            video: "./nike.mp4",
+            video: "./iphonecase.mp4",
             heading: "iPhone 14 Pro Cases",
             price: "199",
         },
@@ -155,28 +203,28 @@ const HomePage = () => {
             price: "2,199",
         },
     ];
-    const bestSellers = [
-        {
-            image: "./bodywash.png",
-            heading: "Nivea Nourishing Body Wash - 500ml",
-            price: "299",
-        },
-        {
-            image: "./shampoo.png",
-            heading: "Dove Intense Repair Shampoo - 650ml",
-            price: "499",
-        },
-        {
-            image: "./perfumeorange.png",
-            heading: "Wild Stone Edge Perfume - 100ml",
-            price: "749",
-        },
-        {
-            image: "./lipstick.png",
-            heading: "Maybelline Matte Lipstick - Red Rush",
-            price: "349",
-        },
-    ];
+    // const bestSellers = [
+    //     {
+    //         image: "./bodywash.png",
+    //         heading: "Nivea Nourishing Body Wash - 500ml",
+    //         price: "299",
+    //     },
+    //     {
+    //         image: "./shampoo.png",
+    //         heading: "Dove Intense Repair Shampoo - 650ml",
+    //         price: "499",
+    //     },
+    //     {
+    //         image: "./perfumeorange.png",
+    //         heading: "Wild Stone Edge Perfume - 100ml",
+    //         price: "749",
+    //     },
+    //     {
+    //         image: "./lipstick.png",
+    //         heading: "Maybelline Matte Lipstick - Red Rush",
+    //         price: "349",
+    //     },
+    // ];
 
     return (
         <div className="font-dm text-gray-800">
@@ -438,12 +486,12 @@ const HomePage = () => {
                                 className="flex-shrink-0 flex flex-col items-center text-center w-[100px]"
                             >
                                 <img
-                                    src={brand.image}
-                                    alt={brand.name}
-                                    className={`${brand.size} object-contain mb-2`}
+                                    src={brand.imageUrl}
+                                    alt={brand.brandName}
+                                    className={`h-10 w-auto object-contain mb-2`}
                                 />
                                 <span className="text-sm text-gray-600 font-medium">
-                                    {brand.name}
+                                    {brand.brandName}
                                 </span>
                             </div>
                         ))}
@@ -545,7 +593,6 @@ const HomePage = () => {
 ` }}
                                         />
                                     </p>
-
                                 </div>
                             );
                         })}
@@ -642,7 +689,6 @@ const HomePage = () => {
                         </button>
                     </div>
                 </div>
-
                 <div className="flex lg:grid lg:grid-cols-4 gap-[12px] overflow-x-auto lg:overflow-visible no-scrollbar">
                     {mostWanted.map((product, i) => (
                         <div
@@ -666,7 +712,7 @@ const HomePage = () => {
                                 >
                                     favorite
                                 </span>
-                                {/* Star rating or value box */}
+ {/* Star rating or value box */}
                                 <div
                                     className="absolute bottom-2 right-2 z-10 flex items-center gap-1 px-2 py-1 rounded-md shadow"
                                     style={{
@@ -674,7 +720,7 @@ const HomePage = () => {
                                         borderRadius: "6px",
                                         width: "auto",
                                         height: "36px",
-                                        width: "59px"
+                                        width:"59px"
                                     }}
                                 >
                                     <span
@@ -685,22 +731,29 @@ const HomePage = () => {
                                     </span>
                                     <span className="text-sm font-medium text-[#303030]">4.5</span>
                                 </div>
-
                                 <img
-                                    src={product.image}
-                                    alt={product.heading}
+                                    src={
+                                        product.productImages?.[0] ||
+                                        "/placeholder.png" // fallback to a local placeholder image
+                                    }
+                                    alt={product.productName || "Product Image"}
                                     className="w-full h-[356px] object-cover"
                                 />
                             </div>
 
                             {/* Product info and cart */}
                             <div className="flex flex-col gap-[12px] h-[96px] mt-3 w-full p-2">
-                                <p className="text-[16px] text-[#303030]">{product.heading}</p>
-
-                                <div className="flex justify-between items-left w-full">
-                                    <p className="text-[32px] font-medium text-[#303030]">
-                                        Rs.{product.price}
+                                <p className="text-[16px] text-[#303030] whitespace-nowrap overflow-hidden text-ellipsis">
+                                    {product.productName || "Unnamed Product"}
+                                </p>
+                                <div className="flex justify-between items-center w-full gap-2">
+                                    <p
+                                        className="text-[32px] font-medium text-[#303030] whitespace-nowrap overflow-hidden text-ellipsis"
+                                        style={{ maxWidth: "calc(100% - 52px)" }}
+                                    >
+                                        Rs.{product.mrpPrice ?? "N/A"}
                                     </p>
+
                                     <span
                                         className="material-symbols-outlined cursor-pointer hover:bg-gray-200"
                                         style={{
@@ -713,6 +766,7 @@ const HomePage = () => {
                                             alignItems: "center",
                                             borderRadius: "4px",
                                             fontSize: "20px",
+                                            flexShrink: 0,
                                         }}
                                     >
                                         shopping_cart
@@ -736,9 +790,9 @@ const HomePage = () => {
                     {newArrivals.map((product, i) => (
                         <div
                             key={i}
-                            className="w-[318px] min-w-[318px] sm:w-auto sm:min-w-0 bg-white rounded-lg shadow-md flex-shrink-0"
+                            className="w-[318px] min-w-[318px] lg:w-auto lg:min-w-0 bg-white rounded-lg shadow-md flex-shrink-0"
                         >
-                            {/* Image and favorite icon */}
+                            {/* Image wrapper */}
                             <div className="relative w-full h-[356px] rounded-md overflow-hidden">
                                 <span
                                     className="material-symbols-outlined absolute top-2 right-2 text-gray-700 text-sm cursor-pointer hover:bg-gray-200 z-10"
@@ -755,7 +809,7 @@ const HomePage = () => {
                                 >
                                     favorite
                                 </span>
-                                {/* Star rating or value box */}
+ {/* Star rating or value box */}
                                 <div
                                     className="absolute bottom-2 right-2 z-10 flex items-center gap-1 px-2 py-1 rounded-md shadow"
                                     style={{
@@ -763,7 +817,7 @@ const HomePage = () => {
                                         borderRadius: "6px",
                                         width: "auto",
                                         height: "36px",
-                                        width: "59px"
+                                        width:"59px"
                                     }}
                                 >
                                     <span
@@ -775,20 +829,26 @@ const HomePage = () => {
                                     <span className="text-sm font-medium text-[#303030]">4.5</span>
                                 </div>
                                 <img
-                                    src={product.image}
-                                    alt={product.heading}
+                                    src={
+                                        product.productImages?.[0] ||
+                                        "/placeholder.png" // fallback to a local placeholder image
+                                    }
+                                    alt={product.productName || "Product Image"}
                                     className="w-full h-[356px] object-cover"
                                 />
                             </div>
 
                             {/* Product info and cart */}
-
                             <div className="flex flex-col gap-[12px] h-[96px] mt-3 w-full p-2">
-                                <p className="text-[16px] text-[#303030]">{product.heading}</p>
-
-                                <div className="flex justify-between items-left w-full">
-                                    <p className="text-[32px] font-medium text-[#303030]">
-                                        Rs.{product.price}
+                                <p className="text-[16px] text-[#303030] whitespace-nowrap overflow-hidden text-ellipsis">
+                                    {product.productName || "Unnamed Product"}
+                                </p>
+                                <div className="flex justify-between items-center w-full gap-2">
+                                    <p
+                                        className="text-[32px] font-medium text-[#303030] whitespace-nowrap overflow-hidden text-ellipsis"
+                                        style={{ maxWidth: "calc(100% - 52px)" }}
+                                    >
+                                        Rs.{product.mrpPrice ?? "N/A"}
                                     </p>
 
                                     <span
@@ -803,6 +863,7 @@ const HomePage = () => {
                                             alignItems: "center",
                                             borderRadius: "4px",
                                             fontSize: "20px",
+                                            flexShrink: 0,
                                         }}
                                     >
                                         shopping_cart
@@ -931,7 +992,7 @@ const HomePage = () => {
                                 >
                                     favorite
                                 </span>
-                                {/* Star rating or value box */}
+ {/* Star rating or value box */}
                                 <div
                                     className="absolute bottom-2 right-2 z-10 flex items-center gap-1 px-2 py-1 rounded-md shadow"
                                     style={{
@@ -939,7 +1000,7 @@ const HomePage = () => {
                                         borderRadius: "6px",
                                         width: "auto",
                                         height: "36px",
-                                        width: "59px"
+                                        width:"59px"
                                     }}
                                 >
                                     <span
@@ -1027,7 +1088,6 @@ const HomePage = () => {
                         </button>
                     </div>
                 </div>
-
                 <div className="flex lg:grid lg:grid-cols-4 gap-[12px] overflow-x-auto lg:overflow-visible no-scrollbar">
                     {bestSellers.map((product, i) => (
                         <div
@@ -1051,7 +1111,7 @@ const HomePage = () => {
                                 >
                                     favorite
                                 </span>
-                                {/* Star rating or value box */}
+ {/* Star rating or value box */}
                                 <div
                                     className="absolute bottom-2 right-2 z-10 flex items-center gap-1 px-2 py-1 rounded-md shadow"
                                     style={{
@@ -1059,7 +1119,7 @@ const HomePage = () => {
                                         borderRadius: "6px",
                                         width: "auto",
                                         height: "36px",
-                                        width: "59px"
+                                        width:"59px"
                                     }}
                                 >
                                     <span
@@ -1071,20 +1131,21 @@ const HomePage = () => {
                                     <span className="text-sm font-medium text-[#303030]">4.5</span>
                                 </div>
                                 <img
-                                    src={product.image}
-                                    alt={product.heading}
+                                    src={product.productImages?.[0] || "/placeholder.png"}
+                                    alt={product.productName}
                                     className="w-full h-[356px] object-cover"
                                 />
                             </div>
 
                             {/* Product info and cart */}
-
                             <div className="flex flex-col gap-[12px] h-[96px] mt-3 w-full p-2">
-                                <p className="text-[16px] text-[#303030]">{product.heading}</p>
+                                <p className="text-[16px] text-[#303030] truncate">
+                                    {product.productName || "Unnamed Product"}
+                                </p>
 
                                 <div className="flex justify-between items-left w-full">
                                     <p className="text-[32px] font-medium text-[#303030]">
-                                        Rs.{product.price}
+                                        Rs.{product.sellingPrice}
                                     </p>
 
                                     <span
@@ -1108,6 +1169,7 @@ const HomePage = () => {
                         </div>
                     ))}
                 </div>
+
             </section>
             <br />
             {/* two cards */}
@@ -1153,6 +1215,7 @@ const HomePage = () => {
                                 muted
                                 playsInline
                                 preload="metadata"
+                                controls
                             />
 
                             {/* Overlay card inside video */}
