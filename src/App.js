@@ -10,6 +10,8 @@ import SetPassword from './components/SetPassword';
 import HomePage from './components/HomePage';
 import ProductListingPage from './components/ProductListing';
 import WishList from './components/WishList';
+import AddressPage from './components/ExistingAddress';
+import CheckOutPage from './components/CheckOutPage';
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
           <Route path="/cart" element={<CartPage />} />
           <Route path="/productlisting" element={<ProductListingPage />} />
           <Route path="/wishlist" element={<WishList />} />
+          <Route path="/existingaddress" element={<AddressPage />} />
+          <Route path="/checkout" element={<CheckOutPage />} />
         </Routes>
       </div>
     </Router>
