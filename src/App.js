@@ -8,6 +8,7 @@ import OTP from './components/OtpVerification';
 import ForgotPassword from './components/ForgotPassword';
 import SetPassword from './components/SetPassword';
 import HomePage from './components/HomePage';
+import ProductListingPage from './components/ProductListing';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/otp" element={<OTP />} />
           <Route path="/productdetail" element={<ProductDetailPage />} />
           <Route path="/cart" element={<CartPage />} />
+          <Route path="/productlisting" element={<ProductListingPage />} />
         </Routes>
       </div>
     </Router>
