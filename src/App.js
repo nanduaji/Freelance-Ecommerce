@@ -9,6 +9,7 @@ import ForgotPassword from './components/ForgotPassword';
 import SetPassword from './components/SetPassword';
 import HomePage from './components/HomePage';
 import ProductListingPage from './components/ProductListing';
+import WishList from './components/WishList';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/productdetail" element={<ProductDetailPage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/productlisting" element={<ProductListingPage />} />
+          <Route path="/wishlist" element={<WishList />} />
         </Routes>
       </div>
     </Router>

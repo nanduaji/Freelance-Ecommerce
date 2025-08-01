@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const products = [
+const wishlist = [
   {
     image: './mens1.png',
     heading: 'Premium Cotton Shirt',
@@ -17,55 +17,10 @@ const products = [
     heading: 'Linen Striped Shirt',
     price: '1,499'
   },
-  {
-    image: './mens4.png',
-    heading: 'Checked Office Shirt',
-    price: '1,199'
-  },
-  {
-    image: './mens5.png',
-    heading: 'Solid Color Formal Shirt',
-    price: '1,299'
-  },
-  {
-    image: './mens6.png',
-    heading: 'Half Sleeve Summer Shirt',
-    price: '899'
-  },
-  {
-    image: './mens7.png',
-    heading: 'Casual Denim Shirt',
-    price: '1,399'
-  },
-  {
-    image: './mens8.png',
-    heading: 'Mandarin Collar Shirt',
-    price: '1,099'
-  },
-  {
-    image: './mens9.png',
-    heading: 'Stretch Fit Denim Jeans',
-    price: '1,899'
-  },
-  {
-    image: './mens10.png',
-    heading: 'Printed Designer Shirt',
-    price: '1,299'
-  },
-  {
-    image: './mens11.png',
-    heading: 'Full Sleeve Flannel Shirt',
-    price: '1,499'
-  },
-  {
-    image: './mens12.png',
-    heading: 'Luxury Satin Finish Shirt',
-    price: '1,799'
-  }
 ];
 
 
-export default function ProductListing() {
+export default function WishList() {
     const navigateTo = useNavigate();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [categoryDropdownOpen, setCategoryDropdownOpen] = useState(false);
@@ -293,65 +248,15 @@ export default function ProductListing() {
             </header>
             {/* Breadcrumb */}
             <div className="text-sm text-gray-600 max-w-7xl mx-auto px-4 mt-6">
-                Home / <span className="text-blue-600">Menswear</span>
+                Home / <span className="text-blue-600">Wishlist</span>
             </div>
             {/* Product Filters and Grid */}
             <section className="max-w-7xl mx-auto px-4 mt-6">
                 <div className="flex justify-between items-center flex-wrap mb-4">
-                    <h2 className="text-lg font-semibold">Menswear <span className="text-gray-500">(585)</span></h2>
-                </div>
-
-                <div
-                    className="mb-6 border border-gray-200 p-4"
-                >
-                    <div className="flex justify-between items-center flex-wrap mb-4 font-medium text-gray-800 text-lg">
-                        <div>Filters</div>
-
-                        <div className="flex flex-col sm:items-end items-start gap-1">
-                            <button className="text-red-600 text-sm">Clear all</button>
-
-                            <div className="text-sm">
-                                <label htmlFor="sortBy" className="mr-2 text-gray-600">Sort by:</label>
-                                <select
-                                    id="sortBy"
-                                    className="border border-gray-300 rounded px-2 py-1 text-sm text-gray-700"
-                                    defaultValue="relevance"
-                                >
-                                    <option value="relevance">Relevance</option>
-                                    <option value="price_low_high">Price: Low to High</option>
-                                    <option value="price_high_low">Price: High to Low</option>
-                                    <option value="newest">Newest First</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="flex flex-wrap gap-3">
-                        {[
-                            "Categories",
-                            "Price Range",
-                            "Brands",
-                            "Size",
-                            "Color (4)",
-                            "Discount Range",
-                        ].map((item, i) => (
-                            <select
-                                key={i}
-                                className={`border px-2 py-1 rounded text-sm ${item.includes("Color") ? "text-red-600" : ""
-                                    }`}
-                            >
-                                <option>{item}</option>
-                            </select>
-                        ))}
-                    </div>
-                    {tags.map((tag, i) => (<span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">{tag.name}<button
-                        className="ml-1 text-gray-500 hover:text-red-600 text-sm"
-                    //   onClick={() => handleRemoveTag(i)}
-                    >
-                        ×
-                    </button></span>))}
+                    <h2 className="text-lg font-semibold">My Wishlist <span className="text-gray-500">(3)</span></h2>
                 </div>
                 <div className="flex lg:grid lg:grid-cols-4 gap-[12px] overflow-x-auto lg:overflow-visible no-scrollbar">
-                    {products.map((product, i) => (
+                    {wishlist.map((product, i) => (
                         <div
                             key={i}
                             className="w-[318px] min-w-[318px] lg:w-auto lg:min-w-0 bg-white rounded-lg shadow-md flex-shrink-0"
