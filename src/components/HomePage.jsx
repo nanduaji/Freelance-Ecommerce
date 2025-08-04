@@ -11,6 +11,7 @@ const HomePage = () => {
     const [categories, setCategories] = useState([]);
     const [newArrivals, setNewArrivals] = useState([]);
     const [bestSellers, setBestSellers] = useState([]);
+    const [reviews, setReviews] = useState([]);
     const [categoryDropdownOpen, setCategoryDropdownOpen] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
@@ -76,13 +77,24 @@ const HomePage = () => {
         const fetchBestSellers = async () => {
             try {
                 const response = await axios.get("https://api.caremall.in/products/best-sellers");
-                console.log("Best Sellers:", response.data);
                 setBestSellers(response.data);
             } catch (error) {
                 console.error("Error fetching new arrivals:", error);
             }
         };
         fetchBestSellers();
+    }, []);
+    useEffect(() => {
+        const fetchAllReviews = async () => {
+            try {
+                const response = await axios.get("https://api.caremall.in/reviews");
+                console.log("Reviews:", response.data);
+                setReviews(response.data);
+            } catch (error) {
+                console.error("Error fetching new arrivals:", error);
+            }
+        };
+        fetchAllReviews();
     }, []);
 
     const icons = [
@@ -1262,29 +1274,7 @@ const HomePage = () => {
                 </h2>
 
                 <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto mt-6">
-                    {[
-                        {
-                            name: "Aarav Mehta",
-                            position: "Founder & CEO, Aarav Enterprises",
-                            feedback:
-                                "Working with Caremall was a game-changer for our business. Their team delivered on time with exceptional quality. Highly recommended!",
-                            rating: 5,
-                        },
-                        {
-                            name: "Meera Nair",
-                            position: "Marketing Director, BrightWorks",
-                            feedback:
-                                "We've seen a 300% boost in conversions since implementing their solutions. Their support is fast and reliable.",
-                            rating: 4,
-                        },
-                        {
-                            name: "Aditya Singh",
-                            position: "Operations Head, LogiCore",
-                            feedback:
-                                "They understood our logistics challenges and built exactly what we needed. Real professionals with a great approach.",
-                            rating: 5,
-                        },
-                    ].map((cust, idx) => (
+                    {reviews.map((cust, idx) => (
                         <div
                             key={idx}
                             className="bg-gray-100 p-4 shadow rounded-[12px] relative h-[300px]"
@@ -1305,12 +1295,12 @@ const HomePage = () => {
 
                             {/* Feedback */}
                             <p className="text-sm italic absolute top-[116px] left-[24px] max-w-[350px] text-gray-600">
-                                “{cust.feedback}”
+                                “{cust.comment}”
                             </p>
 
                             {/* Name & Position */}
                             <div className="absolute top-[219px] left-[24px] text-left">
-                                <p className="font-medium text-gray-700">{cust.name}</p>
+                                <p className="font-medium text-gray-700">{cust.userId.name}</p>
                                 <p className="text-sm text-gray-500">{cust.position}</p>
                             </div>
                         </div>

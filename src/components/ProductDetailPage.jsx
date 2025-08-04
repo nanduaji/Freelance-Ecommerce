@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { RadialBarChart, RadialBar, Legend, ResponsiveContainer } from 'recharts';
 import MagnifierImage from './Magnifier';
+import axios from 'axios';
 
 const ProductDetailPage = () => {
   const navigateTo = useNavigate();
-  const [selectedImage, setSelectedImage] = useState("./headset.png");
+  const [selectedImage, setSelectedImage] = useState("");
+  const [product, setProduct] = useState(null);
+  const [reviews, setReviews] = useState([]);
+  const [selectColor, setSelectColor] = useState([]);
+  const [mostWanted, setMostWanted] = useState([]);
   const icons = [
     {
       icon: "language",
@@ -16,17 +21,18 @@ const ProductDetailPage = () => {
     { icon: "person", path: "/" },
   ];
   const thumbnailImages = [
-    "headset.png",
-    "black.png",
-    "man1.png",
-    "man2.png",
-    "sideview.png"
+    "/headset.png",
+    "/black.png",
+    "/man1.png",
+    "/man2.png",
+    "/sideview.png"
   ];
-  const selectColor = [
-    "headset.png",
-    "black.png",
-    "white.png",
-  ];
+
+  // const selectColor = [
+  //   "headset.png",
+  //   "black.png",
+  //   "white.png",
+  // ];
 
   const customerReviews = [
     {
@@ -159,53 +165,110 @@ const ProductDetailPage = () => {
   const avgRating = 4.8;
   const similarProducts = [
     {
-      image: "./similar1.png",
+      image: "/similar1.png",
       heading: "Wireless Bluetooth Headphones",
       price: "₹2,499",
     },
     {
-      image: "./similar2.png",
+      image: "/similar2.png",
       heading: "In-Ear Noise Cancelling Headphones",
       price: "₹3,199",
     },
     {
-      image: "./similar3.png",
+      image: "/similar3.png",
       heading: "Gaming Headset with Mic",
       price: "₹1,799",
     },
     {
-      image: "./similar4.png",
+      image: "/similar4.png",
       heading: "Foldable Wireless Headphones",
       price: "₹2,999",
     },
   ];
+  // const mostWanted = [
+  //   {
+  //     image: './hoodie.png',
+  //     heading: 'Classic Cotton Hoodie',
+  //     price: '999'
+  //   },
+  //   {
+  //     image: './headphones.png',
+  //     heading: 'Noise Cancelling Earbuds',
+  //     price: '3,999'
+  //   },
+  //   {
+  //     image: './adidas.png',
+  //     heading: 'Adidas Sports Sneakers',
+  //     price: '2,499'
+  //   },
+  //   {
+  //     image: './designer.png',
+  //     heading: 'Designer Handbag',
+  //     price: '4,299'
+  //   }
+  // ];
+  const { slug } = useParams();
+  const urlSlug = slug || "manjova-fashion";
 
-  const mostWanted = [
-      {
-          image: './hoodie.png',
-          heading: 'Classic Cotton Hoodie',
-          price: '999'
-      },
-      {
-          image: './headphones.png',
-          heading: 'Noise Cancelling Earbuds',
-          price: '3,999'
-      },
-      {
-          image: './adidas.png',
-          heading: 'Adidas Sports Sneakers',
-          price: '2,499'
-      },
-      {
-          image: './designer.png',
-          heading: 'Designer Handbag',
-          price: '4,299'
+  useEffect(() => {
+    const fetchProductDetail = async () => {
+      try {
+        const response = await axios.get(`https://api.caremall.in/products/${urlSlug}`, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        const productData = response.data;
+        setProduct(productData);
+        console.log("Product details fetched successfully:", productData);
+
+        // Set default selected image from default variant
+        const defaultVariant = productData.variants.find(variant => variant.isDefault);
+        if (defaultVariant && defaultVariant.images.length > 0) {
+          setSelectedImage(defaultVariant.images[0]);
+        } else {
+          console.warn("No default variant with images found.");
+        }
+
+        // Extract variant images for color selection
+        const variantImages = productData.variants
+          .map(variant => variant.images?.[0])
+          .filter(Boolean); // Remove undefined or null
+
+        setSelectColor(variantImages); // <-- updated here
+
+        // Fetch reviews if product ID exists
+        if (productData._id) {
+          const reviewsResponse = await axios.get(`https://api.caremall.in/reviews/${productData._id}`);
+          console.log("Product reviews fetched successfully:", reviewsResponse.data);
+          setReviews(reviewsResponse.data);
+        }
+
+      } catch (error) {
+        console.error("Error fetching product details:", error);
       }
-  ];
-const handleThumbnailClick = (item) => {
+    };
+
+    fetchProductDetail();
+  }, []);
+  useEffect(() => {
+    const fetchMostWanted = async () => {
+      try {
+        const response = await axios.get("https://api.caremall.in/products/most-wanted");
+        console.log("Most wanted products fetched successfully:", response.data);
+        setMostWanted(response.data);
+      } catch (error) {
+        console.error("Error fetching most wanted products:", error);
+      }
+    };
+    fetchMostWanted();
+  }, []);
+  const handleThumbnailClick = (item) => {
     console.log("Thumbnail clicked:", item);
     setSelectedImage(item);
-}
+  }
+  if (!product) return <p>Loading...</p>;
   return (
     <div className="bg-white-100 font-dm">
       {/* Header */}
@@ -214,12 +277,13 @@ const handleThumbnailClick = (item) => {
           {/* Left: Logo and Navigation */}
           <div className="flex items-center gap-8">
             <img
-              src="./caremall.png"
+              src="/caremall.png"
               alt="Caremall Logo"
               className="w-28 sm:w-20 md:w-28 lg:w-36 xl:w-44"
               style={{ cursor: "pointer" }}
               onClick={() => navigateTo("/")}
             />
+
 
             <nav className="hidden sm:flex gap-6 text-sm text-gray-700">
               <a
@@ -405,7 +469,7 @@ const handleThumbnailClick = (item) => {
         <div className="flex flex-col justify-between">
           <div>
             <h2 className="text-2xl font-bold mb-2 text-left">
-              Boat Nautical Sound Wireless Headphones in Ocean Blue
+              {product?._doc?.productName}
             </h2>
 
             <div className="flex items-center justify-start mt-2">
@@ -461,11 +525,15 @@ const handleThumbnailClick = (item) => {
             </div>
 
             <p className="text-xl text-black font-bold mt-4 text-left">
-              Rs.1,200
+              Rs.{product?.variants?.find((v) => v.isDefault)?.sellingPrice ?? "N/A"}
             </p>
+
             <p className="text-sm text-gray-500 mb-4 text-left">
-              <span className="line-through mr-2">Rs.1,999</span>
-              <span className="text-green-500 font-medium mr-2">25% OFF</span>·
+              <span className="line-through mr-2">Rs.{product?.variants?.find((v) => v.isDefault)?.mrpPrice ?? "N/A"}</span>
+              <span className="text-green-500 font-medium mr-2">
+                ({product?.variants?.find(v => v.isDefault) ? Math.round(((product.variants.find(v => v.isDefault).mrpPrice - product.variants.find(v => v.isDefault).sellingPrice) / product.variants.find(v => v.isDefault).mrpPrice) * 100) : 0}% OFF)
+              </span>
+
               42 Reviews
             </p>
             <p className="text-sm text-black-500 mb-4 text-left">
@@ -557,19 +625,10 @@ const handleThumbnailClick = (item) => {
             >
               Product Details
             </h1>
-            <p style={{ color: "#757575" }}>
-              Introducing the Boat Nautical Sound Wireless Headphones: designed
-              for the adventurous spirit. These headphones feature a robust
-              waterproof design, perfect for beach days or poolside lounging.
-              With a battery life of up to 20 hours, you can enjoy your favorite
-              tunes all day long. The ergonomic fit ensures comfort during
-              extended wear, while the advanced noise cancellation technology
-              lets you immerse yourself in sound without distractions.
-              Experience rich bass and crystal-clear audio quality, making every
-              listening session a delight. Whether you're at home or on the go,
-              the Boat Nautical Sound Wireless Headphones are your perfect
-              companion.
-            </p>
+            <p
+              style={{ color: "#757575" }}
+              dangerouslySetInnerHTML={{ __html: product?._doc?.productDescription }}
+            ></p>
             <br />
             <p style={{ color: "#757575" }}>
               Connectivity: <span className="font-semibold">Bluetooth</span>
@@ -788,22 +847,48 @@ const handleThumbnailClick = (item) => {
                 >
                   favorite
                 </span>
-
+                {/* Star rating or value box */}
+                <div
+                  className="absolute bottom-2 right-2 z-10 flex items-center gap-1 px-2 py-1 rounded-md shadow"
+                  style={{
+                    backgroundColor: "white",
+                    borderRadius: "6px",
+                    width: "auto",
+                    height: "36px",
+                    width: "59px"
+                  }}
+                >
+                  <span
+                    className="material-symbols-outlined"
+                    style={{ color: "#FFD700", fontSize: "18px" }} // Yellow star
+                  >
+                    star
+                  </span>
+                  <span className="text-sm font-medium text-[#303030]">4.5</span>
+                </div>
                 <img
-                  src={product.image}
-                  alt={product.heading}
+                  src={
+                    product.productImages?.[0] ||
+                    "/placeholder.png" // fallback to a local placeholder image
+                  }
+                  alt={product.productName || "Product Image"}
                   className="w-full h-[356px] object-cover"
                 />
               </div>
 
               {/* Product info and cart */}
               <div className="flex flex-col gap-[12px] h-[96px] mt-3 w-full p-2">
-                <p className="text-[16px] text-[#303030]">{product.heading}</p>
-
-                <div className="flex justify-between items-left w-full">
-                  <p className="text-[32px] font-medium text-[#303030]">
-                    Rs.{product.price}
+                <p className="text-[16px] text-[#303030] whitespace-nowrap overflow-hidden text-ellipsis">
+                  {product.productName || "Unnamed Product"}
+                </p>
+                <div className="flex justify-between items-center w-full gap-2">
+                  <p
+                    className="text-[32px] font-medium text-[#303030] whitespace-nowrap overflow-hidden text-ellipsis"
+                    style={{ maxWidth: "calc(100% - 52px)" }}
+                  >
+                    Rs.{product.mrpPrice ?? "N/A"}
                   </p>
+
                   <span
                     className="material-symbols-outlined cursor-pointer hover:bg-gray-200"
                     style={{
@@ -816,6 +901,7 @@ const handleThumbnailClick = (item) => {
                       alignItems: "center",
                       borderRadius: "4px",
                       fontSize: "20px",
+                      flexShrink: 0,
                     }}
                   >
                     shopping_cart

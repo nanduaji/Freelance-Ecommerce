@@ -1,58 +1,86 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
 export default function Login() {
+    const [formData, setFormData] = useState({ email: "", password: "" });
+    const [error, setError] = useState("");
+
+    const handleInputChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+        setError("");
+    };
+
+    const handleLogin = async (e) => {
+        e.preventDefault();
+
+        if (!formData.email || !formData.password) {
+            setError("Please fill in both fields.");
+            return;
+        }
+
+        try {
+            const response = await axios.post("https://api.caremall.in/login", formData);
+            console.log("response", response.data);
+            if (response.status === 200) {
+                alert("Login successful!");
+            } else {
+                setError("Invalid credentials. Please try again.");
+            }
+        } catch (err) {
+            console.error("Login failed:", err);
+            setError("Login failed. Please check your credentials.");
+        }
+    };
+
     return (
         <div className="min-h-screen bg-white font-dm relative">
-
-            {/* Logo at Top Left */}
             <div className="absolute top-8 left-8">
                 <img src="/caremall.png" alt="Care Mall" className="h-8" />
             </div>
 
-            {/* Centered Login Box */}
-            <div className="flex items-center justify-center min-h-screen">
+            <div className="flex items-center justify-center min-h-screen pt-16">
                 <div className="w-full max-w-[392px] p-8 rounded">
                     <h2 className="text-2xl font-semibold text-left">Login</h2>
                     <p className="text-sm text-gray-600 text-left mb-4">
                         Welcome back! please enter your details.
                     </p>
 
-                    <form>
+                    <form onSubmit={handleLogin}>
                         <div className="mb-4">
                             <label className="text-sm font-medium text-gray-700">Email</label>
                             <div className="relative">
                                 <span className="absolute inset-y-0 left-3 flex items-center text-gray-400 mt-1">
-                                    <span class="material-symbols-outlined">
-                                        mail
-                                    </span>
+                                    <span className="material-symbols-outlined">mail</span>
                                 </span>
                                 <input
                                     type="email"
+                                    name="email"
                                     placeholder="Enter Email here"
                                     className="w-full pl-10 pr-4 py-2 mt-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                                    value={formData.email}
+                                    onChange={handleInputChange}
                                 />
                             </div>
                         </div>
-
 
                         <div className="mb-4">
                             <label className="text-sm font-medium text-gray-700">Password</label>
                             <div className="relative">
                                 <span className="absolute inset-y-0 left-3 flex items-center text-gray-400 mt-1">
-                                    <span class="material-symbols-outlined">
-                                        key
-                                    </span>
+                                    <span className="material-symbols-outlined">key</span>
                                 </span>
                                 <input
                                     type="password"
+                                    name="password"
                                     placeholder="Enter Password here"
                                     className="w-full pl-10 pr-4 py-2 mt-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                                    value={formData.password}
+                                    onChange={handleInputChange}
                                 />
-                                <span className="material-symbols-outlined absolute right-3 top-2.5 text-gray-500 cursor-pointer">
-                                    visibility
-                                </span>
                             </div>
                         </div>
+
+                        {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
 
                         <div className="flex justify-between items-center mb-4">
                             <label className="flex items-center text-sm">
@@ -92,7 +120,7 @@ export default function Login() {
                     </div>
 
                     <p className="flex justify-center mt-20 text-sm text-gray-700">
-                        Don't have an account?{" "}
+                        Don't have an account?
                         <a href="/signup" className="ml-1 text-[#FF0000] hover:underline">
                             Sign Up?
                         </a>
